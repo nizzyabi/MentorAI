@@ -22,7 +22,7 @@ export const Sidebar = () => {
         },
         {
             icon: Plus,
-            href: "/newmentor",
+            href: "/create",
             label: "Create",
             pro: true,
         },
