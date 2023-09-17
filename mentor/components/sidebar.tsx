@@ -22,7 +22,7 @@ export const Sidebar = () => {
         },
         {
             icon: Plus,
-            href: "/new/mentor",
+            href: "/newmentor",
             label: "Create",
             pro: true,
         },
@@ -45,7 +45,6 @@ export const Sidebar = () => {
             pro: false,
         },
     ]
-
     // This is a variable that manages the routes of the sidebar. if the user is not pro, for the routes that are pro, we will not display them but take them to an upgrade page if they try and access it.
     const onNavigate = (url: string, pro: boolean) => {
         // Check if Pro
@@ -61,8 +60,11 @@ export const Sidebar = () => {
                 <div className="space-y-2">
                     {routes.map((route) => (
                         <div
-                            // Rendering the route elements with conditional styling based on wether the pathname matches the href of the route. Using key attirbute for efficient rendering. When the route is active (when user is on that page), there is a different color to the text and background) 
-                            key={route.href}
+                            // take user to desired route when clicked
+                            onClick={() => onNavigate(route.href, route.pro)}
+
+                            // Rendering the route elements with conditional styling based on wether the pathname matches the href of the route. Using key attirbute for efficient rendering. When the route is active (when user is on that page), there is a different color to the text and background)
+                            key={route.href} 
                             className={cn(
                             "text-muted-foreground text-xs group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-primary hover:bg-primary/10 rounded-lg transition",
                             pathname === route.href && "bg-primary/10 text-primary"
