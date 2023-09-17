@@ -1,0 +1,82 @@
+"use client"
+
+import { cn } from "@/lib/utils"
+import { usePathname, useRouter } from "next/navigation";
+import { Info, Home, Plus, Settings, Contact } from "lucide-react";
+
+
+export const Sidebar = () => {
+    // usePathname is a hook that returns the current pathname of the page. It is a custom hook for stateful navigation & logic.
+    const pathname = usePathname()
+
+    // Used to access the router object & manage routes.
+    const router = useRouter();
+
+    // the pro wil be used to protect a link or not for the pro users. in this routes variable, we are doing a standard array of objects for our side bar. 
+    const routes = [
+        {
+            icon: Home,
+            href: "/",
+            label: "Home",
+            pro: false,
+        },
+        {
+            icon: Plus,
+            href: "/new/mentor",
+            label: "Create",
+            pro: true,
+        },
+        {
+            icon: Info,
+            href: "/about",
+            label: "About",
+            pro: false,
+        },
+        {
+            icon: Contact,
+            href: "/contact",
+            label: "Contact",
+            pro: false,
+        },
+        {
+            icon: Settings,
+            href: "/settings",
+            label: "Settings",
+            pro: false,
+        },
+    ]
+
+    // This is a variable that manages the routes of the sidebar. if the user is not pro, for the routes that are pro, we will not display them but take them to an upgrade page if they try and access it.
+    const onNavigate = (url: string, pro: boolean) => {
+        // Check if Pro
+
+        // Return URL
+        return router.push(url)
+    }
+
+    return (
+        <div className="space-y-4 flex flex-col h-full text-primary bg-secondary">
+            <div className="p-3 flex flex-1 justify-center">
+                {/* Mapping through each object of the route variable data. */}
+                <div className="space-y-2">
+                    {routes.map((route) => (
+                        <div
+                            // Rendering the route elements with conditional styling based on wether the pathname matches the href of the route. Using key attirbute for efficient rendering. When the route is active (when user is on that page), there is a different color to the text and background) 
+                            key={route.href}
+                            className={cn(
+                            "text-muted-foreground text-xs group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-primary hover:bg-primary/10 rounded-lg transition",
+                            pathname === route.href && "bg-primary/10 text-primary"
+                            )}
+                        >
+                            {/* Design & display icon & label */}
+                            <div className="flex flex-col gap-y-2 items-center flex-1">
+                                <route.icon className="h-5 w-5"/>
+                                {route.label}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+}

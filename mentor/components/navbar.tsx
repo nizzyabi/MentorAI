@@ -2,20 +2,24 @@
 "use client";
 // Non Global Imports
 import { cn } from "@/lib/utils";
-
 // Global Imports
-import { Menu } from "lucide-react";
+import { Menu, Sparkles } from "lucide-react";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
+import { UserButton } from "@clerk/nextjs";
+import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/mode-toggle";
+
 
 const font = Poppins({
     weight: "600",
     subsets: ["latin"]
 })
 
+
 export const Navbar = () => {
     return (
-        <div className="fixed w-full z-50 flex justify-between items-center py-2 px-4 border-b border-primary/10 bg-secondary cursor-pointer">
+        <div className="fixed w-full z-50 flex justify-between items-center py-2 px-4 border-b border-primary/10 bg-secondary cursor-pointer h-16">
             <div className="flex items-center">
                 <Menu className="block md:hidden" />
                 <Link href='/'>
@@ -27,6 +31,17 @@ export const Navbar = () => {
                         MentorAI
                     </h1>
                 </Link>
+            </div>
+            <div className="flex items-center gap-x-3">
+                {/* Button from shadcn, the code is located in the components folder */}
+                <Button variant='upgrade' size='sm'>
+                    Upgrade
+                    <Sparkles className="h-4 w-4 fill-white text-white ml-2" />
+                </Button>
+                {/* Importing functionality & button of dark mode from mode-toggle & theme-provider */}
+                <ModeToggle />
+                {/* User Icon imported from lucide react */}
+                <UserButton />
             </div>
         </div>
     )
