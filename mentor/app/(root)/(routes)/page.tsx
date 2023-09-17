@@ -1,4 +1,4 @@
-//This is the main page of the application. It is the page that will be displayed once the user signs in.
+// This is the main page of the application. It is the page that will be displayed once the user signs in or signs up.
 
 import { SearchInput } from "@/components/search-input"
 

@@ -45,6 +45,7 @@ export const Sidebar = () => {
             pro: false,
         },
     ]
+    
     // This is a variable that manages the routes of the sidebar. if the user is not pro, for the routes that are pro, we will not display them but take them to an upgrade page if they try and access it.
     const onNavigate = (url: string, pro: boolean) => {
         // Check if Pro
