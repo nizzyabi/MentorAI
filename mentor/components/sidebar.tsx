@@ -22,8 +22,8 @@ export const Sidebar = () => {
         },
         {
             icon: Plus,
-            href: "/create",
-            label: "Create",
+            href: "/mentor/new",
+            label: "New",
             pro: true,
         },
         {

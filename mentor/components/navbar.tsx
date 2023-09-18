@@ -37,7 +37,7 @@ export const Navbar = () => {
             </div>
             <div className="flex items-center gap-x-3">
                 {/* Button from shadcn, the code is located in the components folder */}
-                <Button variant='upgrade' size='sm'>
+                <Button variant='upgrade' size='sm' className="hover:opacity-75">
                     Upgrade
                     <Sparkles className="h-4 w-4 fill-white text-white ml-2" />
                 </Button>

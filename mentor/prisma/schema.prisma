@@ -1,0 +1,46 @@
+// Create & set up a prisma through:
+
+// 1. npm install -D prisma
+// 2. npx prisma init
+// 3. Go to planetscale & make a database
+// 4. Everytime we change something in prisma run: 'npx prisma generate' & then 'npx prisma db push'
+// 5. To look at your data: 'npx prisma studio' & also run 'node scripts/seed.ts'. The categories/data should show now.
+
+datasource db {
+  provider = "mysql"
+  url = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+// Backend Data to store category of mentors
+model Category {
+  id String @id @default(uuid())
+  name String
+  mentors Mentor[]
+}
+
+// Backend Data to create mentors in the /new page
+model Mentor {
+  id String @id @default(uuid())
+  userId String
+  userName String
+  src String
+  name String @db.Text
+  description String
+  instructions String @db.Text
+  seed String @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  category Category @relation(fields: [categoryId], references: [id])
+  categoryId String
+
+  @@index([categoryId])
+  @@fulltext([name]) // enable full text search
+}
