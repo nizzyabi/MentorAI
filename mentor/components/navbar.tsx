@@ -11,16 +11,17 @@ import { UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import { MobileSidebar } from "@/components/mobile-sidebar"
+import { Roboto } from "next/font/google";
 
 // Dynamic Font (Poppins)
-const font = Poppins({
-    weight: "600",
+const font = Roboto({
+    weight: "700",
     subsets: ["latin"]
 })
 
 export const Navbar = () => {
     return (
-        <div className="fixed w-full z-50 flex justify-between items-center py-2 px-4 border-b border-primary/10 bg-secondary cursor-pointer h-16">
+        <div className="fixed w-full z-50 flex justify-between items-center py-2 px-4 border-b border-primary/20 bg-secondary/5 cursor-pointer h-16">
             <div className="flex items-center">
                 {/* Getting mobile sidebar function */}
                 <MobileSidebar />
@@ -31,14 +32,14 @@ export const Navbar = () => {
                         {/* Dynamic Font (Poppins) */},
                         font.className 
                         )}>
-                        MentorAI
+                        MyMentorAI
                     </h1>
                 </Link>
             </div>
             <div className="flex items-center gap-x-3">
                 {/* Button from shadcn, the code is located in the components folder */}
                 <Button variant='upgrade' size='sm' className="hover:opacity-75">
-                    Upgrade
+                    MentorPro
                     <Sparkles className="h-4 w-4 fill-white text-white ml-2" />
                 </Button>
                 {/* Importing functionality & button of dark mode from mode-toggle & theme-provider */}
