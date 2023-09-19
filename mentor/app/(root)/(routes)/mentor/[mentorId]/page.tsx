@@ -20,6 +20,7 @@ const MentorIdPage = async ({
         }
     }) // fetch exisiting mentor if there is one
 
+    // look for the different mentor categories & set it to the categories variable to be used in the mentor form for creating a new mentor.
     const categories = await prismadb.category.findMany(); // fetch all categories
 
     return (
