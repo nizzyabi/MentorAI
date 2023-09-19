@@ -2,10 +2,39 @@
 
 //Imports
 import { Categories } from "@/components/categories"
+import { Mentors } from "@/components/mentors";
 import { SearchInput } from "@/components/search-input"
 import prismadb from "@/lib/prismadb"
 
-const RootPage = async () => {
+// Create interface for root page showing the mentors
+interface RootPageProps {
+    searchParams: {
+        categoryId: string;
+        name: string;
+    }
+}
+const RootPage = async ({
+    searchParams
+}: RootPageProps) => {
+    // Get mentors from database when the user searchs for them using the search bar. The mentors are ordered by the time they were created & also includes messages.
+    const data = await prismadb.mentor.findMany({
+        where: {
+            categoryId: searchParams.categoryId,
+            name : {
+                search: searchParams.name
+            }
+        },
+        orderBy: {
+            createdAt: "desc",
+        },
+        include: {
+            _count: {
+                select: {
+                    messages: true
+                }
+            }
+        }
+    })
     const categories = await prismadb.category.findMany() // Get all categories from the database
 
     return (
@@ -13,6 +42,7 @@ const RootPage = async () => {
             {/* Search Bar imported from components for users to search */}
             <SearchInput />
             <Categories data={categories}/>
+            <Mentors data={data} />
         </div>
     )
 }

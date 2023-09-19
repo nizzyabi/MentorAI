@@ -41,6 +41,29 @@ model Mentor {
   category Category @relation(fields: [categoryId], references: [id])
   categoryId String
 
+  messages Message[]
+
   @@index([categoryId])
   @@fulltext([name]) // enable full text search
+}
+
+enum Role {
+  user
+  system
+}
+
+model Message {
+  id String @id @default(uuid())
+  role Role
+  content String @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+
+  mentorId String
+  userId String
+
+  mentor Mentor @relation(fields: [mentorId], references: [id], onDelete: Cascade)
+
+  @@index([mentorId])
 }

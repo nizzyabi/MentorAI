@@ -43,8 +43,7 @@ export const ImageUpload = ({
             >
                 <div className="
                 p-4 
-                border-4 
-                border-dashed 
+                border-4  
                 border-primary/10
                 rounded-lg
                 hover:opacity-75

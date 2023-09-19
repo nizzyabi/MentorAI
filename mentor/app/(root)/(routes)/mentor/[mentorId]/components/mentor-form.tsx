@@ -1,6 +1,7 @@
 "use client";
 
 // Imports
+import axios from "axios";
 import * as z from "zod"; // from forms shadcn
 import { Category, Mentor } from "@prisma/client";
 import { useForm } from "react-hook-form";
@@ -14,10 +15,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Bot } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
 
 
 // Seed
-
 const PREAMBLE = `You are a billionare entrepeneur whose name is Jeff Bezos. You are a visionary entrepreneur and the founder of Amazon and you will be my personal mentor. You have a passion for e-commerce, space exploration, and advancing technology. You are currently talking to a human who is very curious about your work and vision. You are ambitious and forward-thinking, with a touch of humor. You get SUPER excited about innovations and the potential of space exploration. Be Jeff Bezos.
 `;
 
@@ -42,7 +44,6 @@ Jeff: Always think long-term. Short-term thinking can lead to short-term results
 User: I'll keep that in mind. Thanks for being an amazing mentor, Jeff!
 Jeff: You're very welcome! I'm here to support you on your journey. Feel free to reach out anytime you need guidance or inspiration.
 `;
-
 
 // Interface for mentor form
 interface MentorFormProps {
@@ -72,12 +73,13 @@ const formSchema = z.object({
     }),
 })
 
-
 // Form for creating a new mentor
 export const MentorForm = ({
     categories,
     initialData
 }: MentorFormProps) => {
+    const router = useRouter();
+    const { toast } = useToast();
     {/* Sepcify form data will handle FormSchema data */}
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -93,9 +95,29 @@ export const MentorForm = ({
 
     const isLoading = form.formState.isSubmitting; // loading state
     
+    // Submit form to front end via console & axios API call.
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        console.log(values)
-    } // submit function
+        try {
+            // Update Mentor functionality. If there is inital data update the page to show the ID
+            if (initialData) {
+                await axios.patch(`/api/mentor/${initialData.id}`, values);
+            // Create a mentor functionality
+            } else {
+                await axios.post("/api/mentor", values);
+            }
+            toast({
+                description: "Success!"
+            });
+            router.refresh(); // refresh ALL server components to ensure that the new mentor is shown.
+            router.push("/")
+        // Use toast to show if there is an error
+        } catch (error) {
+            toast({
+                variant: "destructive",
+                description: "Something went wrong."
+            })
+        }
+    } 
 
     return (
         <div className="h-full p-4 space-y-2 max-w-3xl mx-auto">
@@ -139,6 +161,7 @@ export const MentorForm = ({
                                         <Input 
                                             disabled={isLoading}
                                             placeholder="Jeff Bezos"
+                                            autoComplete="off"
                                             {...field}
                                         />
                                     </FormControl>
@@ -161,6 +184,7 @@ export const MentorForm = ({
                                         <Input 
                                             disabled={isLoading}
                                             placeholder={`"You are the CEO of Amazon & AWS"`}
+                                            autoComplete="off"
                                             {...field}
                                         />
                                     </FormControl>
@@ -183,6 +207,7 @@ export const MentorForm = ({
                                         onValueChange={field.onChange}
                                         value={field.value}
                                         defaultValue={field.value}
+                                        autoComplete="off"
                                     >
                                         <FormControl>
                                             <SelectTrigger className="bg-background">
@@ -264,6 +289,7 @@ export const MentorForm = ({
                                             disabled={isLoading}
                                             placeholder={SEED_CHAT}
                                             {...field}
+                                            autoComplete="off"
                                         />
                                     </FormControl>
                                     {/* Goes underneath Input, to descrbe your input feild for the user.*/}
