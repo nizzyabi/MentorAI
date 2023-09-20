@@ -11,7 +11,7 @@ interface FormData {
     issue: string;
   }
 const ContactPage = () => {
-    const { register, handleSubmit, errors } = useForm<FormData>();
+    const { register, handleSubmit } = useForm<FormData>();
     const [submissionStatus, setSubmissionStatus] = useState<string | null>(null);
   
     const onSubmit = async (data: FormData) => {
