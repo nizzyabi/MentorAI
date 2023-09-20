@@ -3,10 +3,13 @@
 import { Mentor, Message } from "@prisma/client";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { ChevronLeft, Edit, Edit2, MessageCircle, MoreVertical } from "lucide-react";
+import { ChevronLeft, Edit, Edit2, MessageCircle, MoreVertical, Trash } from "lucide-react";
 import { BotAvatar } from "@/components/bot-avatar";
 import { useUser } from "@clerk/nextjs";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { ModeToggle } from "./mode-toggle";
+import { useToast } from "@/components/ui/use-toast";
+import axios from "axios";
 
 interface ChatHeaderProps {
     mentor: Mentor & {
@@ -24,6 +27,28 @@ export const ChatHeader = ({
     const router = useRouter();
     // User
     const { user }  = useUser();
+    // Toast
+    const { toast } = useToast();
+
+    // Delete Mentor using Toast
+    const onDeleteMentor = async () => {
+        try {
+            // Delete Mentor Link
+            await axios.delete(`/api/mentor/${mentor.id}`);
+
+            toast({
+                description: "Mentor Deleted."
+            })
+            // refresh page & take user to home page
+            router.refresh();
+            router.push("/");
+        } catch (error) {
+            toast({
+                description: "Something Went Wrong.",
+                variant: "destructive"
+            })
+        }
+    }
 
     return (
         <div className="flex w-full justify-between items-center border-b border-primary/10 pt-3 pb-3">
@@ -48,15 +73,22 @@ export const ChatHeader = ({
             {user?.id === mentor.userId && (
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Button variant="secondary" size="icon">
+                        <Button className="bg-transparent text-primary hover:bg-transparent" size="icon">
                             <MoreVertical />
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                        <DropdownMenuItem onClick={() => router.push(`/companion/${mentor.id}`)}>
+                        <DropdownMenuItem onClick={() => router.push(`/mentor/${mentor.id}`)}>
                             <Edit className="w-4 h-4 mr-2" />
                             Edit Mentor
                         </DropdownMenuItem>
+
+                        {/* Trash */}
+                        <DropdownMenuItem onClick={onDeleteMentor}>
+                            <Trash className="w-4 h-4 mr-2"/>
+                            Delete Mentor
+                        </DropdownMenuItem>
+
                         {/* Put the number of chats in here.*/}
                         <DropdownMenuItem>
                             <MessageCircle className="w-4 h-4 mr-2" />

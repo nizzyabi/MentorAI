@@ -4,7 +4,7 @@
 import { cn } from "@/lib/utils";
 
 // Global Imports
-import { Menu, Sparkles } from "lucide-react";
+import { Menu, Sparkles, Zap } from "lucide-react";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
@@ -43,7 +43,7 @@ export const Navbar = () => {
                 {/* Button from shadcn, the code is located in the components folder */}
                 <Button variant='upgrade' size='sm' className="hover:opacity-75">
                     MentorPro
-                    <Sparkles className="h-4 w-4 fill-white text-white ml-2" />
+                    <Zap className="h-4 w-4 fill-white text-white ml-2" />
                 </Button>
                 
             </div>

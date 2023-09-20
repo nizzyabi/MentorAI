@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { usePathname, useRouter } from "next/navigation";
-import { Info, Home, Plus, Settings, Contact } from "lucide-react";
+import { Info, Home, Plus, Settings, Contact, Users } from "lucide-react";
 import { UserButton } from "@clerk/nextjs";
 
 
@@ -16,9 +16,9 @@ export const Sidebar = () => {
     // the pro wil be used to protect a link or not for the pro users. in this routes variable, we are doing a standard array of objects for our side bar. 
     const routes = [
         {
-            icon: Home,
+            icon: Users,
             href: "/",
-            label: "Home",
+            label: "Mentors",
             pro: false,
         },
         {

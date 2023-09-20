@@ -1,6 +1,6 @@
 // Imports
 import prismadb from "@/lib/prismadb";
-import { currentUser } from "@clerk/nextjs";
+import { auth, currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
 export async function PATCH(
@@ -54,5 +54,33 @@ export async function PATCH(
     } catch (error) {
         console.log("[MENTOR_PATCH]", error);
         return new NextResponse("Internal Server Error", { status: 500 })
+    }
+}
+
+// Delete Mentor 
+export async function DELETE(
+    request: Request,
+    { params }: { params: { mentorId: string } }
+) {
+    try {
+        // Get User ID
+        const { userId } = auth();
+        // Check if logged and, if not return error status, if logged in, delete.
+        if (!userId) {
+            return new NextResponse("Unauthorized", { status: 401 })
+        }
+
+        const mentor = await prismadb.mentor.delete({
+            where: {
+                userId,
+                id: params.mentorId
+            }
+        });
+        // return mentor
+        return NextResponse.json(mentor)
+        
+    } catch (error) {
+    console.log("[MENTOR_DELETE]", error);
+    return new NextResponse("Internal Server Error", { status: 500 })
     }
 }
