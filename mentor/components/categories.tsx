@@ -31,7 +31,7 @@ export const Categories = ({
         router.push(url); // push url to router & search params
     }
     return (
-        <div className="w-full overflow-x-auto space-x-2 flex p-1">
+        <div className="w-full overflow-x-auto space-x-2 flex p-1 pb-3">
             <button
                 onClick={() => onClick(undefined)} // When 'newest' button is clicked, we want to reset the search params to undefined & show all mentors.
                 className={cn(`
@@ -40,24 +40,25 @@ export const Categories = ({
                   text-center
                   text-xs
                   md:text-sm
-                  px-2
+                  px-4
                   md:px-4
                   py-2
                   md:py-3
                   rounded-md
                   bg-primary/10
                   hover:opacity-75
-                  transition  
+                  transition
+                  pb-2  
                 `,
                   !categoryId ? "bg-primary/25" : "bg-primary/10"
                 )}
             >
-                Newest
+                All Mentors
             </button> {/* Styling. But this isn't really a button, more like a search filter. */}
             {data.map((item) => (
                 <button
                     onClick={() => onClick(item.id)} // When a category is clicked, we want to update the url to include the category id, essentially filtering the mentors by category.
-                    key={item.id}
+                    
                     className={cn(`
                       flex
                       items-center
@@ -71,10 +72,12 @@ export const Categories = ({
                       rounded-md
                       bg-primary/10
                       hover:opacity-75
-                      transition  
+                      transition 
+                      pb-2 
                     `,
                       item.id === categoryId ? "bg-primary/25" : "bg-primary/10" // When user clicks on a category, it is highlighted.
                     )}
+                    key={item.id}
                 >
                     {item.name}
                 </button>

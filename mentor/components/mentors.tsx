@@ -43,7 +43,7 @@ export const Mentors = ({
             {data.map((item) => (
                 <Card
                     key={item.id}
-                    className="bg-primary/20 rounded-md cursor-pointer transition hover:opacity-75 hover:border-primary"
+                    className="bg-primary/10 rounded-md cursor-pointer transition hover:opacity-75 hover:border-primary"
                 >
                     {/* Link for the mentor to go to the chat. */}
                     <Link href={`/chat/${item.id}`}>

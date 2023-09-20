@@ -37,15 +37,15 @@ export const Navbar = () => {
                 </Link>
             </div>
             <div className="flex items-center gap-x-3">
+                {/* Importing functionality & button of dark mode from mode-toggle & theme-provider */}
+                <ModeToggle />
+                
                 {/* Button from shadcn, the code is located in the components folder */}
                 <Button variant='upgrade' size='sm' className="hover:opacity-75">
                     MentorPro
                     <Sparkles className="h-4 w-4 fill-white text-white ml-2" />
                 </Button>
-                {/* Importing functionality & button of dark mode from mode-toggle & theme-provider */}
-                <ModeToggle />
-                {/* User Icon imported from lucide react */}
-                <UserButton />
+                
             </div>
         </div>
     )

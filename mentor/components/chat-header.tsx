@@ -3,7 +3,7 @@
 import { Mentor, Message } from "@prisma/client";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { ChevronLeft, Edit, MessageCircle, MoreVertical } from "lucide-react";
+import { ChevronLeft, Edit, Edit2, MessageCircle, MoreVertical } from "lucide-react";
 import { BotAvatar } from "@/components/bot-avatar";
 import { useUser } from "@clerk/nextjs";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -26,7 +26,7 @@ export const ChatHeader = ({
     const { user }  = useUser();
 
     return (
-        <div className="flex w-full items-center border-b border-primary/10 pt-3 pb-3">
+        <div className="flex w-full justify-between items-center border-b border-primary/10 pt-3 pb-3">
             {/* Back to Home Page Button */}
             <div className="flex gap-x-2 items-center">
                 <Button onClick={() => router.back()} size="icon" variant="ghost">
@@ -34,23 +34,15 @@ export const ChatHeader = ({
                 </Button>
             </div>
 
-            {/* Bot Avatar */}
-            <BotAvatar src={mentor.src} />
-
-            {/* name of mentor & display number of messages*/}
-            <div className="flex flex-col gap-y-1">
+            <div className="flex items-center justify-center flex-col gap-y-1">
+                 {/* Bot Avatar */}
+                <BotAvatar src={mentor.src} />
+                {/* name of mentor */}
                 <div className="flex items-center gap-x-2">
-                    <p className="font-bold ml-3">
+                    <p className="font-bold">
                         {mentor.name}
                     </p>
-                    <div className="flex items-center text-xs text-muted-foreground">
-                        <MessageCircle className="w-3 h-3 mr-1" />
-                        {mentor._count.messages}
-                    </div>
                 </div>
-                <p className="text-xs text-muted-foreground ml-2">
-                    Created by {mentor.userName}
-                </p>
             </div>
             {/* If statement. if it is the user talking to the chatbot, the dropdown menu displays*/}
             {user?.id === mentor.userId && (
@@ -61,9 +53,14 @@ export const ChatHeader = ({
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                        <DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => router.push(`/companion/${mentor.id}`)}>
                             <Edit className="w-4 h-4 mr-2" />
                             Edit Mentor
+                        </DropdownMenuItem>
+                        {/* Put the number of chats in here.*/}
+                        <DropdownMenuItem>
+                            <MessageCircle className="w-4 h-4 mr-2" />
+                            {mentor._count.messages} Chats
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>

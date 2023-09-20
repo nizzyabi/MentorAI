@@ -183,7 +183,7 @@ export const MentorForm = ({
                                         {/* Input feild  & spreading feild to get all components in one go. */}
                                         <Input 
                                             disabled={isLoading}
-                                            placeholder={`"You are the CEO of Amazon & AWS"`}
+                                            placeholder={`"CEO of Amazon"`}
                                             autoComplete="off"
                                             {...field}
                                         />
