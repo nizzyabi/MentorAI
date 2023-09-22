@@ -1,5 +1,6 @@
 "use client";
 
+import { useForm } from "react-hook-form";
 import { ChangeEvent, FormEvent } from "react";
 import { ChatRequestOptions } from "ai";
 import { Input } from "@/components/ui/input";
@@ -18,6 +19,7 @@ interface ChatFormProps {
     // Loading
     isLoading: boolean;
     mentor: Mentor
+
 }
 
 // Get the Props
@@ -28,6 +30,8 @@ export const ChatForm = ({
     isLoading,
     mentor
 }: ChatFormProps) => {
+    const { reset } = useForm();
+
     // return the form 
     return (
         <form 

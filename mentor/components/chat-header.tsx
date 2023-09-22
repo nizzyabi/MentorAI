@@ -72,7 +72,7 @@ export const ChatHeader = ({
                 </div>
             </div>
             {/* If statement. if it is the user talking to the chatbot, the dropdown menu displays*/}
-            {user?.id === mentor.userId && (
+            {user?.id === mentor.userId ? (
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button className="bg-transparent text-primary hover:bg-transparent" size="icon">
@@ -98,6 +98,21 @@ export const ChatHeader = ({
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
+            ) : (
+                <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                    <Button className="bg-transparent text-primary hover:bg-transparent" size="icon">
+                        <MoreVertical />
+                    </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                    {/* Put the number of chats in here.*/}
+                    <DropdownMenuItem>
+                        <MessageCircle className="w-4 h-4 mr-2" />
+                        {mentor._count.messages} Chats
+                    </DropdownMenuItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
             )}
         </div>
     )

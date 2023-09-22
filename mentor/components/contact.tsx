@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { useForm } from "react-hook-form"
 import { sendEmail } from '@/utils/send-email';
+import { useRouter } from 'next/navigation'
+import { toast } from './ui/use-toast'
 
 export type FormData = {
     name: string;
@@ -13,11 +15,22 @@ export type FormData = {
   };
 
 const Contact: FC = () => {
-    const { register, handleSubmit } = useForm<FormData>();
+    const router = useRouter();
+    const { register, handleSubmit, reset } = useForm<FormData>();
     
     function onSubmit(data: FormData) {
         sendEmail(data);
-      }
+        router.refresh(); 
+
+        toast({
+            title: "Message sent!",
+            description: "We will respond within 1-2 hours.",
+            duration: 3000,
+        })
+
+        reset();
+
+    }
 
     return (
         <div className="h-full p-4 space-y-2 max-w-3xl mx-auto">

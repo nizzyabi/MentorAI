@@ -3,7 +3,6 @@
 import { cn } from "@/lib/utils"
 import { usePathname, useRouter } from "next/navigation";
 import { Info, Home, Plus, Settings, Contact, Users } from "lucide-react";
-import { UserButton } from "@clerk/nextjs";
 
 
 export const Sidebar = () => {
@@ -82,8 +81,6 @@ export const Sidebar = () => {
                 </div>
             </div>
             <div className="flex items-center justify-center pb-9">
-                <UserButton afterSignOutUrl="/"/>
-                
             </div>
         </div>
     )

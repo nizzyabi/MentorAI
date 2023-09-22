@@ -21,7 +21,7 @@ const font = Roboto({
 
 export const Navbar = () => {
     return (
-        <div className="fixed w-full z-50 flex justify-between items-center py-2 px-4 border-b border-primary/20 bg-secondary/5 cursor-pointer h-16">
+        <div className="fixed w-full z-50 flex justify-between items-center py-3 px-4 border-b border-primary/20 bg-secondary/5 cursor-pointer ">
             <div className="flex items-center">
                 {/* Getting mobile sidebar function */}
                 <MobileSidebar />
@@ -41,10 +41,12 @@ export const Navbar = () => {
                 <ModeToggle />
                 
                 {/* Button from shadcn, the code is located in the components folder */}
-                <Button variant='upgrade' size='sm' className="hover:opacity-75">
+                <Button variant='upgrade' className="hover:opacity-75 h-12 w-22">
                     MentorPro
                     <Zap className="h-4 w-4 fill-white text-white ml-2" />
                 </Button>
+
+                <UserButton afterSignOutUrl="/"/>
                 
             </div>
         </div>
