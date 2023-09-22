@@ -33,7 +33,8 @@ export async function PATCH(
       // Call data base and interface and create mentor
       const mentor = await prismadb.mentor.update({
         where: {
-            id: params.mentorId
+            id: params.mentorId,
+            userId: user.id,
         },
         data: {
             categoryId,

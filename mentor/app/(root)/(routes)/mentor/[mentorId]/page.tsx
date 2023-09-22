@@ -2,6 +2,7 @@
 
 import prismadb from "@/lib/prismadb";
 import { MentorForm } from "./components/mentor-form";
+import { auth, redirectToSignIn } from "@clerk/nextjs";
 
 interface MentorIdPageProps {
     params: {
@@ -12,11 +13,18 @@ interface MentorIdPageProps {
 const MentorIdPage = async ({
     params
 }: MentorIdPageProps) => {
+    // chack if it is the user
+    const { userId } = auth();
+
+    if (!userId){
+        return redirectToSignIn()
+    }
     // Check Subscription
 
     const mentor = await prismadb.mentor.findUnique({
         where: {
             id: params.mentorId,
+            userId
         }
     }) // fetch exisiting mentor if there is one
 

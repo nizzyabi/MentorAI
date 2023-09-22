@@ -82,7 +82,7 @@ export const Sidebar = () => {
                 </div>
             </div>
             <div className="flex items-center justify-center pb-9">
-                <UserButton />
+                <UserButton afterSignOutUrl="/"/>
                 
             </div>
         </div>

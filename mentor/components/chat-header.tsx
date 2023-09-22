@@ -20,6 +20,8 @@ interface ChatHeaderProps {
     };
 };
 
+// Chat Header
+//ToDo: change the chat header so that the image of the ai is to the left.
 export const ChatHeader = ({
     mentor
 }: ChatHeaderProps) => {
