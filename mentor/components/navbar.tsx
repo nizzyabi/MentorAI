@@ -37,11 +37,9 @@ export const Navbar = () => {
                 </Link>
             </div>
             <div className="flex items-center gap-x-3">
-                {/* Importing functionality & button of dark mode from mode-toggle & theme-provider */}
-                <ModeToggle />
                 
                 {/* Button from shadcn, the code is located in the components folder */}
-                <Button variant='upgrade' className="hover:opacity-75 h-12 w-22">
+                <Button size="lg" variant='upgrade' className="hover:opacity-75">
                     MentorPro
                     <Zap className="h-4 w-4 fill-white text-white ml-2" />
                 </Button>

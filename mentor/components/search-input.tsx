@@ -73,7 +73,7 @@ export const SearchInput = () => {
                 onChange={onChange}
                 value={value}
                 placeholder={`Search for a mentor... Eg. ${placeholders[placeholderIndex]}`}
-                className="pl-10 bg-primary/10"
+                className="pl-10 bg-primary/10 mt-5"
             />
         </div>
     )

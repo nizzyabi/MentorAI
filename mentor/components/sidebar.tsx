@@ -55,7 +55,7 @@ export const Sidebar = () => {
     }
 
     return (
-        <div className="space-y-4 flex flex-col h-full text-primary bg-secondary/1">
+        <div className="space-y-4 flex flex-col h-full text-primary bg-secondary/1 mt-5">
             <div className="p-3 flex flex-1 justify-center">
                 {/* Mapping through each object of the route variable data. */}
                 <div className="space-y-2">

@@ -13,7 +13,7 @@ export const MobileSidebar = () => {
                 <Menu />
             </SheetTrigger>
             {/* Content within sidebar (sidebar component) once sheet trigger (menu button) is clicked */}
-            <SheetContent side="left" className="p-0 bg-secondary pt-10 w-32">
+            <SheetContent side="left" className="p-0 bg-secondary pt-5 w-32">
                 <Sidebar />
             </SheetContent>
         </Sheet>
