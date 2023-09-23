@@ -127,6 +127,7 @@ export class MemoryManager {
 
         if (await this.history.exists(key)) {
             console.log("Already has chat history");
+            return;
         }
 
         const content = seedContent.split(delimiter);
