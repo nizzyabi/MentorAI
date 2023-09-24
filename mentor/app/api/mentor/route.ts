@@ -1,5 +1,6 @@
 // Imports
 import prismadb from "@/lib/prismadb";
+import { checkSubscription } from "@/lib/subscription";
 import { currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
@@ -21,7 +22,11 @@ export async function POST(req: Request) {
         }
 
         {/* Check Subscription */}
+        const isPro = await checkSubscription();
 
+        if(!isPro) {
+            return new NextResponse('Pro Subscription Required', { status: 400 })
+        }
       // Call data base and interface and create mentor
       const mentor = await prismadb.mentor.create({
         data: {

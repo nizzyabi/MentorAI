@@ -7,6 +7,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from '@/components/theme-provider'
 import { cn } from '@/lib/utils'
 import { Toaster } from '@/components/ui/toaster'
+import { ProModal } from '@/components/pro-modal'
 const inter = Inter({ subsets: ['latin'] })
 // ClerkProvidor should wrap the entire application
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function RootLayout({
         <body className={cn("bg-secondary/5", inter.className)}>
         {/* You can also change the theme to be forced, your choice of theme (dark or light) by having forcedTheme='dark' or 'light'*/}
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          <ProModal />
           {children}
           {/* Toaster from ShadCN*/}
           <Toaster />

@@ -15,24 +15,24 @@ export const checkSubscription = async () => {
     // fetch user subscription
     const userSubscription = await prismadb.userSubscription.findUnique({
         where: {
-            userId: userId,
+          userId: userId,
         },
         select: {
-            stripeCurrentPeriodEnd: true,
-            stripeCustomerId: true,
-            stripePriceId: true,
-            stripeSubscriptionId: true,
-        }
-    })
+          stripeSubscriptionId: true,
+          stripeCurrentPeriodEnd: true,
+          stripeCustomerId: true,
+          stripePriceId: true,
+        },
+      })
     // if not able to fetch user subscription
     if (!userSubscription) {
         return false;
     }
     // if user subscription already exists, validate that it is current
 
-    const isValid = 
-        userSubscription.stripePriceId &&
-        userSubscription.stripeCurrentPeriodEnd?.getTime()! + DAY_IN_MS > Date.now();
+    const isValid =
+    userSubscription.stripePriceId &&
+    userSubscription.stripeCurrentPeriodEnd?.getTime()! + DAY_IN_MS > Date.now()
     
     // turn into boolean
     return !!isValid;

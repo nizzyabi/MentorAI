@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import { MobileSidebar } from "@/components/mobile-sidebar"
 import { Roboto } from "next/font/google";
+import { userProModal } from "@/hooks/use-pro-modal";
 
 // Dynamic Font (Poppins)
 const font = Roboto({
@@ -19,7 +20,14 @@ const font = Roboto({
     subsets: ["latin"]
 })
 
-export const Navbar = () => {
+interface NavbarProps {
+    isPro: boolean;
+}
+
+export const Navbar = ({
+    isPro
+}: NavbarProps) => {
+    const proModal = userProModal()
     return (
         <div className="fixed w-full z-50 flex justify-between items-center py-3 px-4 border-b border-primary/20 bg-secondary/5 cursor-pointer ">
             <div className="flex items-center">
@@ -37,12 +45,15 @@ export const Navbar = () => {
                 </Link>
             </div>
             <div className="flex items-center gap-x-3">
-                
+                {/* If not pro, render button */}
+                {!isPro && (
+                            <Button onClick={proModal.onOpen} size="sm" variant='upgrade' className="hover:opacity-75">
+                                MentorPro
+                                <Zap className="h-4 w-4 fill-white text-white ml-2" />
+                            </Button>
+                )}
                 {/* Button from shadcn, the code is located in the components folder */}
-                <Button size="lg" variant='upgrade' className="hover:opacity-75">
-                    MentorPro
-                    <Zap className="h-4 w-4 fill-white text-white ml-2" />
-                </Button>
+
 
                 <UserButton afterSignOutUrl="/"/>
                 

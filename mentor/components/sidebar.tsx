@@ -3,15 +3,23 @@
 import { cn } from "@/lib/utils"
 import { usePathname, useRouter } from "next/navigation";
 import { Info, Home, Plus, Settings, Contact, Users } from "lucide-react";
+import { userProModal } from "@/hooks/use-pro-modal";
 
 
-export const Sidebar = () => {
+interface SidebarProps {
+    isPro: boolean;
+}
+export const Sidebar = ({
+    isPro
+}: SidebarProps) => {
     // usePathname is a hook that returns the current pathname of the page. It is a custom hook for stateful navigation & logic.
     const pathname = usePathname()
 
     // Used to access the router object & manage routes.
     const router = useRouter();
 
+    // ProModal
+    const proModal = userProModal()
     // the pro wil be used to protect a link or not for the pro users. in this routes variable, we are doing a standard array of objects for our side bar. 
     const routes = [
         {
@@ -48,7 +56,10 @@ export const Sidebar = () => {
     
     // This is a variable that manages the routes of the sidebar. if the user is not pro, for the routes that are pro, we will not display them but take them to an upgrade page if they try and access it.
     const onNavigate = (url: string, pro: boolean) => {
-        // Check if Pro
+        // check if pro
+        if (pro && !isPro) {
+            return proModal.onOpen()
+        }
 
         // Return URL
         return router.push(url)
