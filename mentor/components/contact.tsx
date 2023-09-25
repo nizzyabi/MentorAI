@@ -8,6 +8,7 @@ import { sendEmail } from '@/utils/send-email';
 import { useRouter } from 'next/navigation'
 import { toast } from './ui/use-toast'
 
+
 export type FormData = {
     name: string;
     email: string;
@@ -44,9 +45,10 @@ const Contact: FC = () => {
                     <div className="flex flex-wrap -mx-2">
                         <div className="w-1/2 px-2">
                             <p className="pl-1 pb-1 text-sm text-muted-foreground">Name</p>
-                            <Input type="text" autoComplete="off" placeholder="Jane Doe"
-                            {...register('name', { required: true })}
+                            <Input type="text" autoComplete="off"
+                            placeholder='John Doe'
                             />
+                           
                         </div>
                         <div className="w-1/2 px-2">
                             <p className="pl-1 pb-1 text-sm text-muted-foreground">Email</p>

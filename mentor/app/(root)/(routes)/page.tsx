@@ -4,6 +4,7 @@
 import { Categories } from "@/components/categories"
 import { Mentors } from "@/components/mentors";
 import { SearchInput } from "@/components/search-input"
+import { Button } from "@/components/ui/button";
 import prismadb from "@/lib/prismadb"
 
 // Create interface for root page showing the mentors
