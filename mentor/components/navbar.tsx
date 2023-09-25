@@ -48,7 +48,7 @@ export const Navbar = ({
                             "hidden md:block text-xl md:text-3xl font-bold text-primary",
                             {/* Dynamic Font (Poppins) */},
                             font.className 
-                            )}>MyMentor</h1>
+                            )}>MyMentor.AI</h1>
                     )}
                 </Link>
             </div>

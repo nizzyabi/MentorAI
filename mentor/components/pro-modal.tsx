@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
+import { Check } from "lucide-react";
 
 // When user clicks on Pro Button, this will appear, showcasing what will come with the subscription. 
 export const ProModal = () => {
@@ -40,11 +41,46 @@ export const ProModal = () => {
         <Dialog open={proModal.isOpen} onOpenChange={proModal.onClose}>
             <DialogContent>
                 <DialogHeader className="space-y-4">
-                    <DialogTitle className="text-center">
-                        Upgrade to MentorPro
+                    <DialogTitle className="text-center text-3xl">
+                        Upgrade to Mentor<span className="text-purple-500">Pro</span>
                     </DialogTitle>
+
+                    {/* Description #1 */}
                     <DialogDescription className="text-center space-y-2">
-                        Create <span className="text-purple-500 font-medium">Custom AI</span> Mentors!
+                        <Check className="inline-block w-5 h-5" />
+                        <span className="pl-2"><span className="text-purple-500 font-medium">Custom AI</span> Mentors</span>
+                    </DialogDescription>
+
+                    {/* Description #2 */}
+                    <DialogDescription
+                    className="text-center space-y-2"> 
+                        <Check className="inline-block w-5 h-5" />
+                        <span className="pl-2"><span className="text-purple-500 font-medium">Faster & Better</span> Mentor Responses</span>
+                    </DialogDescription>
+
+                    {/* Description #3 */}
+                    <DialogDescription className="text-center space-y-2">
+                        <Check className="inline-block w-5 h-5" />
+                        <span className="text-purple-500 font-medium pl-2">Edit & Update </span> your Mentors
+                    </DialogDescription>
+                    
+                    {/* Description #4 */}
+                    <DialogDescription className="text-center space-y-2">
+                        <Check className="inline-block w-5 h-5" />
+                        <span className="text-purple-500 font-medium pl-2">Unlimited </span> Chats with your AI Mentors
+                    </DialogDescription>
+
+                    {/* Description #5*/}
+                    <DialogDescription
+                    className="text-center space-y-2"> 
+                        <Check className="inline-block w-5 h-5" />
+                        <span className="pl-2"><span className="text-purple-500 font-medium">Early Access</span> to New Mentors & Features</span>
+                    </DialogDescription>
+
+                    {/* Description #6 */}
+                    <DialogDescription className="text-center space-y-2">
+                        <Check className="inline-block w-5 h-5" />
+                        <span className="text-purple-500 font-medium pl-2">Light & Dark </span> Mode
                     </DialogDescription>
                 </DialogHeader>
                 <Separator />
