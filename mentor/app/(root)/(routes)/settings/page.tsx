@@ -8,8 +8,8 @@ const SettingsPage = async () => {
     const isPro = await checkSubscription();
     return (
         <div className="h-full p-4 space-y-2 max-w-3xl mx-auto">
-            <h3 className="text-lg font-medium">Settings</h3>
-            <Separator className="bg-primary/10" />
+            <h3 className="text-lg text-muted-foreground mb-2 font-bold pb-2">Settings</h3>
+            <Separator />
             <div className="pt-5 pb-5">
                 <p className="text-md text-muted-foreground mb-2 font-bold">Background Mode</p>
                 {/* Importing functionality & button of dark mode from mode-toggle & theme-provider */}

@@ -35,7 +35,7 @@ export const SubscriptionButton = ({
         }
     }
     return(
-        <Button onClick={onClick} disabled={loading} size='sm' variant={isPro? "default" : "upgrade"}>
+        <Button onClick={onClick} disabled={loading} className="hover:opacity-75 font-bold" variant={isPro? "default" : "upgrade"}>
             {isPro ? "Manage Subscription" : "Upgrade to MentorPro"}
             {!isPro && <Zap className="h-4 w-4 ml-2 fill-white"/>}
         </Button>

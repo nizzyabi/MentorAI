@@ -33,7 +33,7 @@ export const Navbar = ({
     const proModal = userProModal()
     const { userId } = useAuth();
     return (
-        <div className="fixed w-full z-50 flex justify-between items-center py-3 px-4 border-b border-primary/20 bg-secondary/5 cursor-pointer ">
+        <div className="fixed w-full z-50 flex justify-between items-center py-3 px-4 border-b border-primary/1 bg-secondary/1 cursor-pointer ">
             <div className="flex items-center">
                 {/* Getting mobile sidebar function */}
                 <MobileSidebar />
@@ -41,13 +41,13 @@ export const Navbar = ({
                 <Link href='/'>
                     {isPro ? (
                         <h1 className={cn(
-                            "hidden md:block text-xl md:text-3xl font-bold text-primary",
+                            "hidden md:block text-xl md:text-3xl font-bold text-primary/1",
                             {/* Dynamic Font (Poppins) */},
                             font.className 
                             )}>MyMentor.AI<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"> Pro</span></h1>
                     ) : (
                         <h1 className={cn(
-                            "hidden md:block text-xl md:text-3xl font-bold text-primary",
+                            "hidden md:block text-xl md:text-3xl font-bold text-primary/1",
                             {/* Dynamic Font (Poppins) */},
                             font.className 
                             )}>MyMentor.AI</h1>

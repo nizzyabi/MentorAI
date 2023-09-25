@@ -79,8 +79,8 @@ export const ProModal = () => {
 
                     {/* Description #6 */}
                     <DialogDescription className="text-center space-y-2">
-                        <Check className="inline-block w-5 h-5" />
-                        <span className="text-purple-500 font-medium pl-2">Light & Dark </span> Mode
+                        <Check className="inline-block w-5 h-5"/>
+                        <span className="pl-2"><span className="text-purple-500 font-medium">Black & White</span> Mode Access</span>
                     </DialogDescription>
                 </DialogHeader>
                 <Separator />
