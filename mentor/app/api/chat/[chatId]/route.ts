@@ -9,6 +9,7 @@ import { MemoryManager } from "@/lib/memory";
 import { rateLimit } from "@/lib/rate-limit";
 import prismadb from "@/lib/prismadb";
 
+
 export async function POST(
   request: Request,
   { params }: { params: { chatId: string } }
@@ -109,11 +110,13 @@ export async function POST(
         ${recentChatHistory}\n${mentor.name}:`
         )
         .catch(console.error)
+        
     );
 
     const cleaned = resp.replaceAll(",", "");
     const chunks = cleaned.split("\n");
     const response = chunks[0];
+   
 
     await memoryManager.writeToHistory("" + response.trim(), mentorKey);
     var Readable = require("stream").Readable;

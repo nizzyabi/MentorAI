@@ -11,11 +11,9 @@ async function main() {
             data: [
                 { name: "Entrepenurs"},
                 { name: "Scientists"},
-                { name: "Inventors"},
                 { name: "Athletes"},
                 { name: "Musicians"},
                 { name: "Actors"},
-                { name: "World Leaders"},
                 { name: "Historic Figures"},
             ]
         })
