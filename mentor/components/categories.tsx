@@ -50,7 +50,7 @@ export const Categories = ({
                   transition
                   pb-2  
                 `,
-                  !categoryId ? "bg-primary/25" : "bg-primary/10"
+                  !categoryId ? "bg-secondary/5 border-red-500 border" : "bg-primary/10"
                 )}
             >
                 All Mentors
@@ -70,12 +70,13 @@ export const Categories = ({
                       py-2
                       md:py-3
                       rounded-md
+                      border-primary/10
                       bg-primary/10
                       hover:opacity-75
                       transition 
                       pb-2 
                     `,
-                      item.id === categoryId ? "bg-primary/25" : "bg-primary/10" // When user clicks on a category, it is highlighted.
+                      item.id === categoryId ? "bg-secondary/5 border-red-500 border" : "bg-primary/10" // When user clicks on a category, it is highlighted.
                     )}
                     key={item.id}
                 >

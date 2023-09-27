@@ -78,8 +78,9 @@ export const Sidebar = ({
                             // Rendering the route elements with conditional styling based on wether the pathname matches the href of the route. Using key attirbute for efficient rendering. When the route is active (when user is on that page), there is a different color to the text and background)
                             key={route.href} 
                             className={cn(
-                            "text-muted-foreground text-xs group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-secondary/1 hover:bg-gray rounded-lg transition",
-                            pathname === route.href && "bg-secondary/10text-secondary/1"
+                            "text-muted-foreground text-xs group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-secondary/1 hover:opacity-75 transition rounded-lg"
+                            ,
+                            pathname === route.href && " opacity-90"
                             )}
                         >
                             {/* Design & display icon & label */}

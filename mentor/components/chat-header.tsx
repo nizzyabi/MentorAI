@@ -71,7 +71,7 @@ export const ChatHeader = ({
                     </p>
                 </div>
             </div>
-            {/* If statement. if it is the user talking to the chatbot, the dropdown menu displays*/}
+            {/* If st atement. if it is the user talking to the chatbot, the dropdown menu displays*/}
             {user?.id === mentor.userId ? (
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>

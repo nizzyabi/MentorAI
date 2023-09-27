@@ -3,7 +3,6 @@ import { Mentor } from "@prisma/client"
 import Image from "next/image";
 import { Card, CardFooter, CardHeader } from "@/components/ui/card";
 import Link from "next/link";
-import { MessageCircle } from "lucide-react";
 
 // Create an interface that stores all the mentors that the user or we add.
 interface MentorsProps {
@@ -36,14 +35,16 @@ export const Mentors = ({
         )
     }
     // If there are mentors found (in search OR in the home page) display this
+    // TODO: Subscription for more than 10 uses rather than creating. 
     return (
         // style so that the cards look different with each display size.
+        
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 pb-10">
             {/* Map through the data to display the mentor using item.id */}
             {data.map((item) => (
                 <Card
                     key={item.id}
-                    className="bg-primary/10 rounded-md cursor-pointer transition hover:opacity-75 hover:border-primary"
+                    className="bg-primary/10 rounded-md cursor-pointer transition hover:opacity-75 hover:border-purple-500 hover:border"
                 >
                     {/* Link for the mentor to go to the chat. */}
                     <Link href={`/chat/${item.id}`}>
@@ -66,14 +67,6 @@ export const Mentors = ({
                                 {item.description}
                             </p>
                             </CardHeader>
-                            <CardFooter className="flex items-center justify-between text-xs text-muted-foreground">
-                                <p className="lowercase text-sm">{item.userName}</p>
-                                <div className="flex items-center">
-                                    {/* Message Icon & count*/}
-                                    <MessageCircle className="text-sm w-3 h-3 mr-1"/>
-                                    {item._count.messages}
-                                </div>
-                            </CardFooter>
                     </Link>
                 </Card>
             ))}
