@@ -27,7 +27,7 @@ export const Mentors = ({
                         fill
                         className=""
                         alt="Empty"
-                        src="/empty.png"
+                        src="/no.svg"
                     />
                 </div>
                 <p className="text-sm text-muted-foreground">No Mentors Found</p>
@@ -44,7 +44,7 @@ export const Mentors = ({
             {data.map((item) => (
                 <Card
                     key={item.id}
-                    className="bg-primary/10 rounded-md cursor-pointer transition hover:opacity-75 hover:border-purple-500 hover:border"
+                    className="bg-primary/10 rounded-md cursor-pointer transition hover:opacity-75 hover:border-primary/50 hover:border"
                 >
                     {/* Link for the mentor to go to the chat. */}
                     <Link href={`/chat/${item.id}`}>

@@ -50,7 +50,7 @@ export const Categories = ({
                   transition
                   pb-2  
                 `,
-                  !categoryId ? "bg-secondary/5 border-red-500 border" : "bg-primary/10"
+                  !categoryId ? "bg-secondary/30 border-primary/80 border" : "bg-primary/10"
                 )}
             >
                 All Mentors
@@ -76,7 +76,7 @@ export const Categories = ({
                       transition 
                       pb-2 
                     `,
-                      item.id === categoryId ? "bg-secondary/5 border-red-500 border" : "bg-primary/10" // When user clicks on a category, it is highlighted.
+                      item.id === categoryId ? "bg-secondary/30 border-primary/70 border" : "bg-primary/10" // When user clicks on a category, it is highlighted.
                     )}
                     key={item.id}
                 >

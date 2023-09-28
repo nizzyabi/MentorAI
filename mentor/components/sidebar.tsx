@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { usePathname, useRouter } from "next/navigation";
-import { Info, Home, Plus, Settings, Contact, Users } from "lucide-react";
+import { Info, Home, Plus, Settings, Contact, Users, Expand } from "lucide-react";
 import { userProModal } from "@/hooks/use-pro-modal";
 
 
@@ -52,6 +52,12 @@ export const Sidebar = ({
             label: "Settings",
             pro: false,
         },
+        {
+            icon: Expand,
+            href: "/extra",
+            label: "Extra",
+            pro: false,
+        }
     ]
     
     // This is a variable that manages the routes of the sidebar. if the user is not pro, for the routes that are pro, we will not display them but take them to an upgrade page if they try and access it.
