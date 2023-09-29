@@ -1,82 +1,25 @@
-import { auth } from "@clerk/nextjs";
-import { NextResponse } from "next/server";
-import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
-import prismadb from "@/lib/prismadb";
+import { OpenAIStream, OpenAIStreamPayload } from "../../../utils/open-ai-streams";
 
-import { checkSubscription } from "@/lib/subscription";
+if (!process.env.OPENAI_API_KEY) throw new Error("Missing OpenAI API Key");
 
-const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
-});
+export const POST = async (req: Request) => {
+  const { prompt } = (await req.json()) as { prompt: string };
 
-// FOR PROMPTING AI 
+  if (!prompt) return new Response("Missing prompt", { status: 400 });
 
+  const payload: OpenAIStreamPayload = {
+    model: "gpt-3.5-turbo",
+    messages: [{ role: "user", content: prompt }],
+    temperature: 0.7,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    max_tokens: 200,
+    stream: true,
+    n: 1,
+  };
 
-const openai = new OpenAIApi(configuration)
-const instructionMessage: ChatCompletionRequestMessage = {
-    role: "system",
-    content: `You are xyz. talk like him. you are a mentor.`
-}
-export async function POST (
-     req : Request,
-     { params }: { params: { mentorId: string } } 
-) {
-    try {
-        const { userId } = auth();
-        const body = await req.json();
-        const { messages } = body
-        
-        // mentor
+  const stream = await OpenAIStream(payload);
 
-        if (!userId) {
-            return new NextResponse("Unauthorized", { status: 401 });
-        }
-
-        if (!configuration.apiKey) {
-            return new NextResponse("OpenAI API Key not configured", { status: 500 })
-        }
-
-        if (!messages) {
-            return new NextResponse("Messages are required", { status: 400 })
-        }
-
-          
-        
-
-        const response = await openai.createChatCompletion({
-            model: "gpt-3.5-turbo",
-            messages: [instructionMessage, ...messages],
-            stream: true
-        },
-        {
-            responseType: 'stream'
-        });
-        
-        // here
-
-        const messagesL: any = [];
-
-        response.data.on<any>('data', (text: Buffer) => {
-            const lines = text.toString().split('\n').filter(line => line.trim() !== '');
-            for (const line of lines) {
-                const message = line.replace(/^data: /, '');
-                if (message === '[DONE]') {
-                    // Handling of the DONE message if required
-                    return;
-                }
-                try {
-                    const parsedMessage = JSON.parse(message);
-                    messagesL.push(parsedMessage.choices[0].message);
-                } catch (err) {
-                    console.log(err);
-                }
-            }
-        });
-
-        return NextResponse.json(messagesL[0]);
-
-    } catch(error) {
-        console.log("[CODE_ERROR]", error);
-        return new NextResponse("Internal error", { status: 500 });
-    }
-}
+  return new Response(stream);
+};

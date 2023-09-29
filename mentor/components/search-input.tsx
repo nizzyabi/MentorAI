@@ -59,7 +59,7 @@ export const SearchInput = () => {
     useEffect(() => {
         const interval = setInterval(() => {
           setPlaceholderIndex((prevIndex) => (prevIndex + 1) % placeholders.length);
-        }, 3000); // Change placeholder every 3 seconds
+        }, 2000); // Change placeholder every 3 seconds
     
         return () => {
           clearInterval(interval);

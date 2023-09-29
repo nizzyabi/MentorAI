@@ -99,7 +99,7 @@ export async function POST(
       await model
         .call(
           `
-            You are a mentor. ONLY generate plain sentences without prefix of who is speaking. DO NOT use ${mentor.name}: prefix. 
+            You are ${mentor.name} and you are my mentor. Give advice as if you lived the life of ${mentor.name} ONLY generate plain sentences without prefix of who is speaking. DO NOT use ${mentor.name}: prefix nor user: prefix. dont use "" or '' either. just plain text unless you are quoting someone else. if the user asks, just say that you cannot.
 
         ${mentor.instructions}
 

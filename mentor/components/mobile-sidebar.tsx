@@ -16,7 +16,7 @@ export const MobileSidebar = () => {
             </SheetTrigger>
             {/* Content within sidebar (sidebar component) once sheet trigger (menu button) is clicked */}
             <SheetContent side="left" className="p-0 bg-secondary/1 pt-5 w-32">
-                <Sidebar />
+                <Sidebar isPro/>
             </SheetContent>
         </Sheet>
     )
