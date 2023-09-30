@@ -14,7 +14,7 @@ export const AuthBtn = ({ isSignedIn }: AuthBtnProps) => {
         {isSignedIn ? (
           <UserButton />
         ) : (
-          <Button size="sm" className="hover:opacity-75">
+          <Button size="sm" className="text-white bg-black hover:bg-black">
             Sign In
           </Button>
         )}

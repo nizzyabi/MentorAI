@@ -39,7 +39,7 @@ const RootPage = async ({
     const categories = await prismadb.category.findMany() // Get all categories from the database
 
     return (
-        <div className="h-full p-4 space-y-2">
+        <div className="h-full p-4 space-y-2 ">
             {/* Search Bar imported from components for users to search */}
             <SearchInput />
             <Categories data={categories}/>

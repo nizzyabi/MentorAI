@@ -32,7 +32,7 @@ export const Categories = ({
         router.push(url); // push url to router & search params
     }
     return (
-        <div className="w-full overflow-x-auto space-x-2 flex p-1 pb-3">
+        <div className="w-full overflow-x-auto space-x-2 flex p-1 pb-3 bg-[#ECECF1] text-black ">
             <button
                 onClick={() => onClick(undefined)} // When 'newest' button is clicked, we want to reset the search params to undefined & show all mentors.
                 className={cn(`
@@ -47,11 +47,11 @@ export const Categories = ({
                   md:py-3
                   rounded-md
                   bg-primary/10
-                  hover:opacity-75
                   transition
-                  pb-2  
+                  pb-2 
+                  text-black 
                 `,
-                  !categoryId ? "bg-secondary/30 border-primary/80 border" : "bg-primary/10"
+                  !categoryId ? "bg-gray-300" : "bg-primary/10"
                 )}
             >
                 All Mentors
@@ -70,14 +70,15 @@ export const Categories = ({
                       md:px-4
                       py-2
                       md:py-3
+                      border-blackborder-1
                       rounded-md
-                      border-primary/10
-                      bg-primary/10
-                      hover:opacity-75
+                      
                       transition 
-                      pb-2 
+                      pb-2
+                      text-black
+                     
                     `,
-                      item.id === categoryId ? "bg-secondary/30 border-primary/70 border" : "bg-primary/10" // When user clicks on a category, it is highlighted.
+                      item.id === categoryId ? "bg-gray-300" : "opacity-75" // When user clicks on a category, it is highlighted.
                     )}
                     key={item.id}
                 >

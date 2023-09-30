@@ -16,10 +16,10 @@ const RootLayout = async ({
             <Navbar isPro={isPro}/>
 
             {/* SideBar */}
-            <div className="hidden md:flex mt-16 w-20 flex-col fixed inset-y-0">
+            <div className="hidden md:flex mt-16 w-20 flex-col fixed inset-y-0 bg-[#ECECF1]">
                 <Sidebar isPro={isPro}/>
             </div>
-            <main className="md:pl-20 pt-16 h-full">
+            <main className="md:pl-20 pt-16 h-full bg-[#ECECF1]">
                 {children}
             </main>
         </div>

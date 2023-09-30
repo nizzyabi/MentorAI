@@ -21,7 +21,7 @@ export const Mentors = ({
     // If the user searches for a mentor and nothing is found, return this.
     if (data.length === 0) {
         return (
-            <div className="pt-10 flex flex-col items-center justify-center space-y-3">
+            <div className="pt-10 flex flex-col items-center justify-center space-y-3 bg-[#FAFAFC]">
                 <div className="relative w-60 h-60">
                     <Image 
                         fill
@@ -30,7 +30,7 @@ export const Mentors = ({
                         src="/no.svg"
                     />
                 </div>
-                <p className="text-sm text-muted-foreground">No Mentors Found</p>
+                <p className="text-sm text-black">No Mentors Found</p>
             </div>
         )
     }
@@ -39,17 +39,17 @@ export const Mentors = ({
     return (
         // style so that the cards look different with each display size.
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 pb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 pb-10 bg-[#ECECF1]">
             {/* Map through the data to display the mentor using item.id */}
             {data.map((item) => (
                 <Card
                     key={item.id}
-                    className="bg-primary/10 rounded-md cursor-pointer transition hover:opacity-75 hover:border-primary/50 hover:border"
+                    className="bg-[#ECECF1] rounded-md cursor-pointer transition hover:opacity-50 text-black"
                 >
                     {/* Link for the mentor to go to the chat. */}
                     <Link href={`/chat/${item.id}`}>
                         {/* Image & Card for the mentor*/}
-                        <CardHeader className="flex items-center justify-center text-center text-muted-foreground">
+                        <CardHeader className="flex items-center justify-center text-center text-black">
                             <div className="relative w-32 h-32">
                                 <Image
                                     src={item.src}
