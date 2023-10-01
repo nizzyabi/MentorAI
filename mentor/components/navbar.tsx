@@ -15,6 +15,7 @@ import { MobileSidebar } from "@/components/mobile-sidebar"
 import { Roboto } from "next/font/google";
 import { userProModal } from "@/hooks/use-pro-modal";
 import { auth, redirectToSignIn } from "@clerk/nextjs";
+import { FreeCounter } from "@/components/free-counter";
 
 
 // Dynamic Font (Poppins)
@@ -25,15 +26,17 @@ const font = Roboto({
 
 interface NavbarProps {
     isPro: boolean;
+    apiLimitCount: number;
 }
 
 export const Navbar = ({
-    isPro
+    isPro,
+    apiLimitCount = 0
 }: NavbarProps) => {
     const proModal = userProModal()
     const { userId } = useAuth();
     return (
-        <div className="fixed w-full z-50 flex justify-between items-center py-3 px-4 bg-[#ECECF1] cursor-pointer border-b ">
+        <div className="fixed w-full z-50 flex justify-between items-center  px-4 bg-[#ECECF1] cursor-pointer border-b ">
             <div className="flex items-center">
                 {/* Getting mobile sidebar function */}
                 <MobileSidebar />
@@ -54,7 +57,15 @@ export const Navbar = ({
                     )}
                 </Link>
             </div>
+            
             <div className="flex items-center gap-x-3">
+                <div className="flex items-center">
+                    <FreeCounter 
+                        apiLimitCount={apiLimitCount}
+                    />
+                </div>
+                {/* Free Counter */}
+                
                 {/* If not pro, render button */}
                 {!isPro && userId && (
                             <Button onClick={proModal.onOpen} size="sm" variant='upgrade' className="hover:opacity-75">

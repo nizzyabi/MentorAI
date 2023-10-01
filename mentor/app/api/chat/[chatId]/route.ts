@@ -9,11 +9,13 @@ import { MemoryManager } from "@/lib/memory";
 import { rateLimit } from "@/lib/rate-limit";
 import prismadb from "@/lib/prismadb";
 import { increaseApiLimit, checkApiLimit } from "@/lib/api-limit";
+import { userProModal } from "@/hooks/use-pro-modal";
 
 export async function POST(
   request: Request,
   { params }: { params: { chatId: string } }
 ) {
+  
   try {
     
     const { prompt } = await request.json();
@@ -23,6 +25,10 @@ export async function POST(
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
+    const freeTrial = await checkApiLimit();
+    if (!freeTrial) {
+      return new NextResponse("API limit exceeded", { status: 429 });
+    }
 
     const identifier = request.url + "-" + user.id;
     const { success } = await rateLimit(identifier);
@@ -30,9 +36,6 @@ export async function POST(
     if (!success) {
       return new NextResponse("Rate limit exceeded", { status: 429 });
     }
-
-    
-
 
     const mentor = await prismadb.mentor.update({
       where: {
@@ -68,8 +71,10 @@ export async function POST(
     if (records.length === 0) {
       await memoryManager.seedChatHistory(mentor.seed, "\n\n", mentorKey);
     }
+
     await memoryManager.writeToHistory("User: " + prompt + "\n", mentorKey);
 
+    await increaseApiLimit();
     // Query Pinecone
 
     const recentChatHistory = await memoryManager.readLatestHistory(mentorKey);

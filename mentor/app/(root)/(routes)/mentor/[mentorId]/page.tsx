@@ -3,6 +3,7 @@
 import prismadb from "@/lib/prismadb";
 import { MentorForm } from "./components/mentor-form";
 import { auth, redirectToSignIn } from "@clerk/nextjs";
+import { userProModal } from "@/hooks/use-pro-modal";
 
 interface MentorIdPageProps {
     params: {

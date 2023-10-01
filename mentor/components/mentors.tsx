@@ -40,17 +40,17 @@ export const Mentors = ({
     return (
         // style so that the cards look different with each display size.
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7 gap-2  bg-[#ECECF1]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-2  bg-[#ECECF1]">
             {/* Map through the data to display the mentor using item.id */}
             {data.map((item) => (
-                <Card
+                <div
                     key={item.id}
                     className="bg-[#ECECF1] rounded-md cursor-pointer transition hover:opacity-30 text-black"
                 >
                     {/* Link for the mentor to go to the chat. */}
                     <Link href={`/chat/${item.id}`}>
                         {/* Image & Card for the mentor*/}
-                        <CardHeader className="flex items-center justify-center text-center text-black">
+                        <div className="flex items-center justify-center text-center text-black">
                             <div className="relative w-[170px] h-[170px]">
                                 <Image
                                     src={item.src}
@@ -59,17 +59,19 @@ export const Mentors = ({
                                     alt="Companion"
                                 />
                             </div>
-                            {/* Name of the mentor */}
-                            <p className="font-bold">
-                                {item.name}
-                            </p>
-                            {/* Description of the mentor */}
-                            <p className="text-xs">
-                                {item.description}
-                            </p>
-                            </CardHeader>
+                        </div>
                     </Link>
-                </Card>
+                    {/* Name of the mentor */}
+                    <div className="text-center mb-3">
+                        <p className="font-bold">
+                            {item.name}
+                        </p>
+                    {/* Description of the mentor */}
+                        <p className="text-xs">
+                            {item.description}
+                        </p>  
+                    </div>   
+                </div>
             ))}
         </div>
 

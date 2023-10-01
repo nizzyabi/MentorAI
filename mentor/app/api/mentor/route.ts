@@ -5,8 +5,11 @@ import { currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import { checkApiLimit } from "@/lib/api-limit";
 
+
+
 export async function POST(req: Request) {
     // Connect to JSON & get the data to parse.
+    
     try {
         const body = await req.json();
         const user = await currentUser();
@@ -30,7 +33,6 @@ export async function POST(req: Request) {
 
         {/* Check Subscription */}
         const isPro = await checkSubscription();
-
         if(!isPro) {
             return new NextResponse('Pro Subscription Required', { status: 400 })
         }

@@ -9,7 +9,7 @@ import { currentUser, useUser } from "@clerk/nextjs";
 
 interface SidebarProps {
     isPro: boolean;
-    data: Mentor;
+    data?: Mentor;
 }
 export const Sidebar = ({
     isPro,

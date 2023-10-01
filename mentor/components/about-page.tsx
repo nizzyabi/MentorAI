@@ -70,6 +70,18 @@ export default function AboutUs() {
             <div className=" text-lg md:text-xl font-light text-black flex text-center justify-center pr-20 pl-20">
                 MyMentorAI leverages cutting-edge artificial intelligence to connect you with the most successful individuals across the world! record video of you texting it
             </div>
+            <div className="flex justify-center items-center pt-10">
+            <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/nqZE7a88zwo?si=aUSRi8qoYANh0_1J" 
+            title="YouTube video player" 
+            style={{ border: "none" }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowFullScreen>
+            </iframe>
+            </div>
+
             <Card className="bg-[#ECECF1] rounded-md transition text-black">
                 <CardHeader className="flex items-center justify-center text-center text-black">
                 <div className="relative w-66 h-50 flex items-center justify-center p-5">
