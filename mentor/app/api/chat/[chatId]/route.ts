@@ -10,6 +10,7 @@ import { rateLimit } from "@/lib/rate-limit";
 import prismadb from "@/lib/prismadb";
 import { increaseApiLimit, checkApiLimit } from "@/lib/api-limit";
 import { userProModal } from "@/hooks/use-pro-modal";
+import { checkSubscription } from "@/lib/subscription";
 
 export async function POST(
   request: Request,
@@ -20,13 +21,13 @@ export async function POST(
     
     const { prompt } = await request.json();
     const user = await currentUser();
-
+    const isPro = await checkSubscription();
     if (!user || !user.firstName || !user.id) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
     const freeTrial = await checkApiLimit();
-    if (!freeTrial) {
+    if (!freeTrial && !isPro) {
       return new NextResponse("API limit exceeded", { status: 429 });
     }
 
@@ -74,7 +75,9 @@ export async function POST(
 
     await memoryManager.writeToHistory("User: " + prompt + "\n", mentorKey);
 
-    await increaseApiLimit();
+    if (!isPro){
+      await increaseApiLimit();
+    }
     // Query Pinecone
 
     const recentChatHistory = await memoryManager.readLatestHistory(mentorKey);

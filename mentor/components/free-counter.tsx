@@ -9,11 +9,13 @@ import { Button } from "./ui/button";
 // interface FreeCounterProps {}
 interface FreeCounteProps {
     apiLimitCount: number;
+    isPro?: boolean;
 }
 
 // Counter for free users
 export const FreeCounter = ({
-    apiLimitCount = 0
+    apiLimitCount = 0,
+    isPro
 }: FreeCounteProps) => {
     // for hydration errors
     const [mounted, setMounted] = useState(false)
@@ -27,20 +29,20 @@ export const FreeCounter = ({
     }
 
     return (
-        <div className="px-3 flex items-center justify-center pt-3">
-            <Card className="bg-white/10 ">
-                <CardContent className="">
-                    <div className="text-center text-sm text-black ">
-                        <p>
-                            {apiLimitCount} / {MAX_FREE_COUNTS} Free Chats
-                        </p>
-                        <Progress 
-                            className=" bg-white border-black border-1"
-                            value={(apiLimitCount) / MAX_FREE_COUNTS * 100}
-                        />
-                    </div>
-                </CardContent>
-            </Card>
-        </div>
+        <div className="px-3 flex items-center justify-center pt-4">
+            <Card className="bg-white/10">
+            <CardContent className="">
+                <div className="text-center text-sm text-black ">
+                    <p>
+                        {apiLimitCount} / {MAX_FREE_COUNTS} Free Chats
+                    </p>
+                    <Progress 
+                        className=" bg-white border-black border-1"
+                        value={(apiLimitCount) / MAX_FREE_COUNTS * 100}
+                    />
+                </div>
+            </CardContent>
+        </Card>
+    </div>
     )
 }

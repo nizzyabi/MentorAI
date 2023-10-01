@@ -16,6 +16,7 @@ import { Roboto } from "next/font/google";
 import { userProModal } from "@/hooks/use-pro-modal";
 import { auth, redirectToSignIn } from "@clerk/nextjs";
 import { FreeCounter } from "@/components/free-counter";
+import { checkSubscription } from "@/lib/subscription";
 
 
 // Dynamic Font (Poppins)
@@ -35,8 +36,9 @@ export const Navbar = ({
 }: NavbarProps) => {
     const proModal = userProModal()
     const { userId } = useAuth();
+    
     return (
-        <div className="fixed w-full z-50 flex justify-between items-center  px-4 bg-[#ECECF1] cursor-pointer border-b ">
+        <div className="fixed w-full z-50 flex justify-between items-center  px-4 bg-[#ECECF1] cursor-pointer pt-2">
             <div className="flex items-center">
                 {/* Getting mobile sidebar function */}
                 <MobileSidebar />
@@ -60,9 +62,14 @@ export const Navbar = ({
             
             <div className="flex items-center gap-x-3">
                 <div className="flex items-center">
-                    <FreeCounter 
-                        apiLimitCount={apiLimitCount}
-                    />
+                    {!isPro ? (
+                        <FreeCounter 
+                            apiLimitCount={apiLimitCount}
+                        />
+                    ): (
+                        <h1></h1>
+                    )}
+                    
                 </div>
                 {/* Free Counter */}
                 

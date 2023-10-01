@@ -25,17 +25,20 @@ export async function POST(req: Request) {
             return new NextResponse("Missing required fields", { status: 400 })
         }
 
+        const isPro = await checkSubscription();
+        if(!isPro) {
+            return new NextResponse('Pro Subscription Required', { status: 400 })
+        }
+
         const freeTrial = await checkApiLimit();
 
         if (!freeTrial) {
           return new NextResponse("Free trial limit exceeded", { status: 403 });
         }
 
+
         {/* Check Subscription */}
-        const isPro = await checkSubscription();
-        if(!isPro) {
-            return new NextResponse('Pro Subscription Required', { status: 400 })
-        }
+
       // Call data base and interface and create mentor
       const mentor = await prismadb.mentor.create({
         data: {
