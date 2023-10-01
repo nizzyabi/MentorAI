@@ -4,11 +4,21 @@
 // Local Imports
 import { cn } from "@/lib/utils";
 // Imports
-import { Select } from "@/components/ui/select";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+  } from "@/components/ui/dropdown-menu"
 import qs from "query-string";
 import { Category } from "@prisma/client"
 import { useSearchParams, useRouter } from "next/navigation";
-
+import { Button } from "./ui/button";
+import { GalleryVertical, SlidersHorizontal } from "lucide-react";
+import { useState } from "react";
+import { set } from "react-hook-form";
 
 // Display all the categories in the database
 interface CategoriesProps {
@@ -19,8 +29,12 @@ export const Categories = ({
 }: CategoriesProps) => {
 
     const router = useRouter(); // Get the router
+
     const searchParams = useSearchParams(); // Get the search params
+
     const categoryId = searchParams.get("categoryId"); // Get the category id from the search params
+
+    const [isOpen, setIsOpen] = useState(false); // Set the dropdown menu to closed by default
 
     // When a category is clicked, we want to update the url to include the category id
     const onClick = (id: string | undefined) => {
@@ -31,9 +45,21 @@ export const Categories = ({
     }, { skipNull: true }) // Skip null values & stringify the url
         router.push(url); // push url to router & search params
     }
+
+    const handleButton = () => {
+        setIsOpen(!isOpen);
+    }
     return (
-        <div className="w-full overflow-x-auto space-x-2 flex p-1 pb-3 bg-[#ECECF1] text-black ">
-            <button
+        <div>
+            <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+
+                    <Button onClick={handleButton}className="bg-transparent text-black hover:bg-transparent cursor-pointer" size="icon">
+                        <SlidersHorizontal className='border-none'/>
+                    </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                <button
                 onClick={() => onClick(undefined)} // When 'newest' button is clicked, we want to reset the search params to undefined & show all mentors.
                 className={cn(`
                   flex
@@ -46,45 +72,53 @@ export const Categories = ({
                   py-2
                   md:py-3
                   rounded-md
-                  bg-primary/10
+                  bg-none
                   transition
                   pb-2 
-                  text-black 
+                  text-white
+                  cursor-pointer
+                  hover:opacity-75 
+                  scroll
                 `,
-                  !categoryId ? "bg-gray-300" : "bg-primary/10"
+                  !categoryId ? "bg-transparent" : "transparent"
                 )}
             >
                 All Mentors
             </button> {/* Styling. But this isn't really a button, more like a search filter. */}
-            {data.map((item) => (
+                
+                {data.map((item) => (
                 <button
                     onClick={() => onClick(item.id)} // When a category is clicked, we want to update the url to include the category id, essentially filtering the mentors by category.
                     
                     className={cn(`
-                      flex
-                      items-center
-                      text-center
-                      text-xs
-                      md:text-sm
-                      px-2
-                      md:px-4
-                      py-2
-                      md:py-3
-                      border-blackborder-1
-                      rounded-md
-                      
-                      transition 
-                      pb-2
-                      text-black
-                     
+                    flex
+                    items-center
+                    
+                    text-center
+                    text-xs
+                    md:text-sm
+                    px-4
+                    md:px-4
+                    py-2
+                    md:py-3
+                    rounded-md
+                    bg-none
+                    transition
+                    pb-2 
+                    text-white
+                    cursor-pointer
+                    hover:opacity-75 
+                    scroll
                     `,
-                      item.id === categoryId ? "bg-gray-300" : "opacity-75" // When user clicks on a category, it is highlighted.
+                      item.id === categoryId ? "bg-none" : "bg-transparent" // When user clicks on a category, it is highlighted.
                     )}
                     key={item.id}
                 >
                     {item.name}
                 </button>
-            ))} {/* Map through the 'data'  from PrismaDB and display each category */}
+            ))}
+                </DropdownMenuContent>
+            </DropdownMenu>
         </div>
     )
 }

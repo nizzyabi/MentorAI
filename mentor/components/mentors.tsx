@@ -3,7 +3,8 @@ import { Mentor } from "@prisma/client"
 import Image from "next/image";
 import { Card, CardFooter, CardHeader } from "@/components/ui/card";
 import Link from "next/link";
-
+import { useState } from "react";
+import '../app/mentors.css'
 // Create an interface that stores all the mentors that the user or we add.
 interface MentorsProps {
     // Telling the code that it may get something that it does not expect (count).
@@ -39,22 +40,22 @@ export const Mentors = ({
     return (
         // style so that the cards look different with each display size.
         
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 pb-10 bg-[#ECECF1]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7 gap-2  bg-[#ECECF1]">
             {/* Map through the data to display the mentor using item.id */}
             {data.map((item) => (
                 <Card
                     key={item.id}
-                    className="bg-[#ECECF1] rounded-md cursor-pointer transition hover:opacity-50 text-black"
+                    className="bg-[#ECECF1] rounded-md cursor-pointer transition hover:opacity-30 text-black"
                 >
                     {/* Link for the mentor to go to the chat. */}
                     <Link href={`/chat/${item.id}`}>
                         {/* Image & Card for the mentor*/}
                         <CardHeader className="flex items-center justify-center text-center text-black">
-                            <div className="relative w-32 h-32">
+                            <div className="relative w-[170px] h-[170px]">
                                 <Image
                                     src={item.src}
                                     fill
-                                    className="rounded-xl object-cover"
+                                    className="rounded-xl object-cover max-w"
                                     alt="Companion"
                                 />
                             </div>
@@ -71,5 +72,7 @@ export const Mentors = ({
                 </Card>
             ))}
         </div>
+
+
     )
 }

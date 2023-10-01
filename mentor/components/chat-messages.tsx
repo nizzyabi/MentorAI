@@ -40,12 +40,13 @@ export const ChatMessages = ({
 
     return (
         // Put the input for bot with it's image & a description message
-        <div className="flex-1 overflow-y-auto pr-4">
+        <div className="flex-1 overflow-y-auto pr-4 text-black">
             <ChatMessage
                 isLoading={fakeLoading}
                 src={mentor.src}
                 role="system"
                 content={`Hello, my name is ${mentor.name}, ${mentor.description}. Nice to meet you!`}
+                
             />
             {/* Map through the messages so that they are displayed in the chat*/}
             {messages.map((message) => (
@@ -64,7 +65,7 @@ export const ChatMessages = ({
                     src={mentor.src}
                 />
             )}
-            <div ref={scrollRef}/>
+            <div ref={scrollRef} style={{ backgroundColor: "black" }}/>
         </div>
     )
 }

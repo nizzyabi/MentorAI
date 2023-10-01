@@ -3,6 +3,7 @@ import prismadb from "@/lib/prismadb";
 import { checkSubscription } from "@/lib/subscription";
 import { currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
+import { checkApiLimit } from "@/lib/api-limit";
 
 export async function POST(req: Request) {
     // Connect to JSON & get the data to parse.
@@ -19,6 +20,12 @@ export async function POST(req: Request) {
         {/* Check if all fields are completed */}
         if (!src || !name || !description || !instructions || !seed || !categoryId) {
             return new NextResponse("Missing required fields", { status: 400 })
+        }
+
+        const freeTrial = await checkApiLimit();
+
+        if (!freeTrial) {
+          return new NextResponse("Free trial limit exceeded", { status: 403 });
         }
 
         {/* Check Subscription */}

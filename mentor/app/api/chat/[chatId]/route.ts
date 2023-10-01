@@ -8,13 +8,14 @@ import { NextResponse } from "next/server";
 import { MemoryManager } from "@/lib/memory";
 import { rateLimit } from "@/lib/rate-limit";
 import prismadb from "@/lib/prismadb";
-
+import { increaseApiLimit, checkApiLimit } from "@/lib/api-limit";
 
 export async function POST(
   request: Request,
   { params }: { params: { chatId: string } }
 ) {
   try {
+    
     const { prompt } = await request.json();
     const user = await currentUser();
 
@@ -22,12 +23,16 @@ export async function POST(
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
+
     const identifier = request.url + "-" + user.id;
     const { success } = await rateLimit(identifier);
 
     if (!success) {
       return new NextResponse("Rate limit exceeded", { status: 429 });
     }
+
+    
+
 
     const mentor = await prismadb.mentor.update({
       where: {
@@ -47,6 +52,7 @@ export async function POST(
     if (!mentor) {
       return new NextResponse("Companion not found", { status: 404 });
     }
+
 
     const name = mentor.id;
     const mentor_file_name = name + ".txt";
@@ -94,7 +100,7 @@ export async function POST(
 
     // Turn verbose on for debugging
     model.verbose = true;
-
+    
     const resp = String(
       await model
         .call(
@@ -113,6 +119,7 @@ export async function POST(
         
     );
 
+    // increaseApiLimit();
     const cleaned = resp.replaceAll(",", "");
     const chunks = cleaned.split("\n");
     const response = chunks[0];

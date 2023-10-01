@@ -1,0 +1,13 @@
+#overlay {
+    inset: 0;
+    opacity: 0;
+    color: black;
+}
+
+
+#imgDisplay:hover #overlay {
+    opacity: 1;
+    color: black;
+    background-color: blue;
+    
+}

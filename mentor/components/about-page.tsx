@@ -1,22 +1,20 @@
 "use client"
 
 import TypewriterComponent from "typewriter-effect"
-import { Card, CardContent, CardTitle } from "@/components/ui/card"
 import Image from "next/image"
 import { Button } from "./ui/button"
 import Link from "next/link"
-
+import { Card, CardFooter, CardHeader } from "@/components/ui/card";
 export default function AboutUs() {
 
     const images = [
         {
-            src:'/elon.jpg'
+            src:'/elon.jpg',
+            name: 'Elon Musk'
         },
         {
-            src:'/stevejobs.jpg'
-        },
-        {
-            src:'/micheal.jpeg'
+            src:'/micheal.jpeg',
+            name: 'Micheal Jordan'
         }
     ]
 
@@ -45,7 +43,7 @@ export default function AboutUs() {
             <div className="flex items-center justify-center pt-2 pb-5">
                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
                     <div className="flex items-center justify-center">
-                        <h1 className="text-primary/1 pr-2">Talk to: </h1>
+                        <h1 className="text-black pr-2">Talk to: </h1>
                         <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                         <TypewriterComponent options={{
                     strings: [
@@ -69,24 +67,31 @@ export default function AboutUs() {
                 </div>
             </div>
             {/* Content */}
-            <div className=" text-lg md:text-xl font-light text-zinc-400 flex text-center justify-center pr-20 pl-20">
-                MyMentorAI leverages cutting-edge artificial intelligence to connect you with the best advice from the most successful individuals across diverse industries.
+            <div className=" text-lg md:text-xl font-light text-black flex text-center justify-center pr-20 pl-20">
+                MyMentorAI leverages cutting-edge artificial intelligence to connect you with the most successful individuals across the world! record video of you texting it
             </div>
-
-            {/* Images */}
-            <div className="relative w-66 h-50 flex items-center justify-center p-5">
+            <Card className="bg-[#ECECF1] rounded-md transition text-black">
+                <CardHeader className="flex items-center justify-center text-center text-black">
+                <div className="relative w-66 h-50 flex items-center justify-center p-5">
                 {/* Map through images*/}  
                 {images.map((item, index) => (
-                    <div key={index} className="relative w-60 h-60">
+                                            
+                    <div key={index} className="relative w-[250px] h-60">
+                        <p className="">{item.name}</p>
                         <Image
                             src={item.src}
                             fill
-                            className="rounded-xl object-cover p-3"
+                            className="rounded-xl object-cover p-3 pt-6"
                             alt="Companion"
                         />
                     </div>
                 ))}
-            </div>
+                </div>
+                </CardHeader>
+            </Card>
+
+           
+            
                 {/* Link to all mentors*/}
                     <div className="flex items-center justify-center pb-5 pt-3">
                         <Link href='/'>
@@ -98,9 +103,9 @@ export default function AboutUs() {
             {/* Why we started */}
             <div>
                 <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl space-y-5 font-extrabold">
-                    <h1 className="text-primary/1 text-center pb-4">Why MentorAI?</h1>
+                    <h1 className="text-black text-center pb-4">Why MentorAI?</h1>
                 </div>
-                <div className="text-lg md:text-xl font-light text-zinc-400 flex text-center justify-center pb-3 pr-20 pl-20">
+                <div className="text-lg md:text-xl font-light text-black flex text-center justify-center pb-3 pr-20 pl-20">
                     {/* put cards & pictures of AI Mentors*/}
                     <p>In the world today, it is important to have a mentor to guide you through tough times & give advice where need be. However, finding a good mentor is hard, especially for new entrepeneurs, artists, and go getters. Thus, we made MyMentorAI for that reason, to help guide you with the best advice from the most successful people.</p>
                 </div>
@@ -129,9 +134,9 @@ export default function AboutUs() {
             {/* About the company */}
             <div>
                 <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl space-y-5 font-extrabold">
-                    <h1 className="text-primary/1 text-center pb-4">Our Team</h1>
+                    <h1 className="text-black text-center pb-4">Our Team</h1>
                 </div>
-                <div className="text-lg md:text-xl font-light text-zinc-400 flex text-center justify-center pb-3 pr-20 pl-20">
+                <div className="text-lg md:text-xl font-light text-black flex text-center justify-center pb-3 pr-20 pl-20">
                     {/* put cards & pictures of AI Mentors*/}
                     <p>Our team consists of 5 People. We are incredibly proud to be working on this project together. </p>
                 </div>
