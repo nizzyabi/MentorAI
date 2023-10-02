@@ -55,7 +55,7 @@ export const Categories = ({
                 <DropdownMenuTrigger asChild>
 
                     <Button onClick={handleButton}className="bg-transparent text-black hover:bg-transparent cursor-pointer" size="icon">
-                        <SlidersHorizontal className='border-none'/>
+                        <SlidersHorizontal className='border-none hover:opacity-60'/>
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>

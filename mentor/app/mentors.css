@@ -11,3 +11,9 @@
     background-color: blue;
     
 }
+
+.specialBtn {
+    background: white;
+    box-shadow: 0px 6px 5px rgba(128,0,128,0.6);
+    transition: 200ms;
+}

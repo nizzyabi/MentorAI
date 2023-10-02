@@ -36,16 +36,17 @@ export const ChatForm = ({
     return (
         <form 
             onSubmit={onSubmit} 
-            className="py-4 flex items-center gap-x-2 text-black">
+            className="pt-4 flex items-center gap-x-2 text-black pl-2 border-t">
                 <Input 
                     disabled={isLoading}
                     value={input}
                     onChange={handleInputChange}
                     placeholder={`Write a message to ${mentor.name}...`}
-                    className="rounded-md text-black bg-[#ECECF1] border-black"
+                    className="rounded-md text-black bg-[#ECECF1] border-purple-500 border-2 focus:outline-none "
+                    
                 />
                 <Button disabled={isLoading} variant="ghost" className="hover:bg-transparent hover:opacity-40">
-                    <SendHorizonal className="h-6 w-6 text-black hover:bg-transparent"/>
+                <SendHorizonal className="h-6 w-6 text-black hover:bg-transparent"/>
                 </Button>
         </form>
     )

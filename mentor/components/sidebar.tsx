@@ -93,13 +93,13 @@ export const Sidebar = ({
         if (pro && !isPro) {
             return proModal.onOpen()
         }
-
+        
         // Return URL
         return router.push(url)
     }
 
     return (
-        <div className="space-y-4 flex flex-col h-full text-primary mt-5 bg-[#ECECF1]">
+        <div className="space-y-4 flex flex-col h-full text-primary mt-5 bg-[#ECECF1] pl-4 pr-3">
             {user?.id === 'user_2VTrfY3GPyZltXWvDX6RB955lcC' ? (
                 <div className="p-3 flex flex-1 justify-center">
                 {/* Mapping through each object of the route variable data. */}
@@ -114,7 +114,7 @@ export const Sidebar = ({
                                         className={cn(
                                         "text-muted-foreground text-xs group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-secondary/1 hover:opacity-75 transition rounded-lg text-black"
                                         ,
-                                        pathname === route.href && "bg-gray-300 text-black"
+                                        pathname === route.href && "border-bottom"
                             )}
                              >
                             {/* Design & display icon & label */}
@@ -140,7 +140,7 @@ export const Sidebar = ({
                             className={cn(
                             "text-muted-foreground text-xs group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-secondary/1 hover:opacity-75 transition rounded-lg text-black"
                             ,
-                            pathname === route.href && "bg-gray-300 text-black"
+                            pathname === route.href && "border-bottom border-black text-black font-extrabold"
                             )}
                         >
                             {/* Design & display icon & label */}

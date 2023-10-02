@@ -40,7 +40,7 @@ export default function AboutUs() {
     return (
         <div>
             {/* Header */}
-            <div className="flex items-center justify-center pt-2 pb-5">
+            <div className="flex items-center justify-center pt-8 pb-5">
                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
                     <div className="flex items-center justify-center">
                         <h1 className="text-black pr-2">Talk to: </h1>
@@ -81,29 +81,6 @@ export default function AboutUs() {
             allowFullScreen>
             </iframe>
             </div>
-
-            <Card className="bg-[#ECECF1] rounded-md transition text-black">
-                <CardHeader className="flex items-center justify-center text-center text-black">
-                <div className="relative w-66 h-50 flex items-center justify-center p-5">
-                {/* Map through images*/}  
-                {images.map((item, index) => (
-                                            
-                    <div key={index} className="relative w-[250px] h-60">
-                        <p className="">{item.name}</p>
-                        <Image
-                            src={item.src}
-                            fill
-                            className="rounded-xl object-cover p-3 pt-6"
-                            alt="Companion"
-                        />
-                    </div>
-                ))}
-                </div>
-                </CardHeader>
-            </Card>
-
-           
-            
                 {/* Link to all mentors*/}
                     <div className="flex items-center justify-center pb-5 pt-3">
                         <Link href='/'>
@@ -154,16 +131,16 @@ export default function AboutUs() {
                 </div>
                 <div className="relative max-w h-50 flex items-center justify-center pb-3">
                 {/* Map through images*/}  
-                {team.map((item, index) => (
-                    <div key={index} className="relative w-60 h-60">
+                
+                    <div className="relative w-[500px] h-[400px]">
                         <Image
-                            src={item.src}
+                            src='/dev-team.jpeg'
                             fill
                             className="rounded-xl object-cover p-3"
                             alt="Companion"
                         />
                     </div>
-                ))}
+                
             </div>
             </div>
         </div>
