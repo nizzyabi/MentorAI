@@ -4,6 +4,7 @@ import { checkSubscription } from "@/lib/subscription";
 import { currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import { checkApiLimit } from "@/lib/api-limit";
+import { userProModal } from "@/hooks/use-pro-modal";
 
 
 
@@ -11,6 +12,7 @@ export async function POST(req: Request) {
     // Connect to JSON & get the data to parse.
     
     try {
+        const proModal = userProModal();
         const body = await req.json();
         const user = await currentUser();
         const { src, name, description, instructions, seed, categoryId } = body
@@ -36,6 +38,8 @@ export async function POST(req: Request) {
           return new NextResponse("Free trial limit exceeded", { status: 403 });
         }
 
+        
+
 
         {/* Check Subscription */}
 
@@ -57,7 +61,7 @@ export async function POST(req: Request) {
       return NextResponse.json(mentor)
       
       // Check and post error if there is one.
-    } catch (error) {
+    } catch (error:any) {
         console.log("[MENTOR_POST]", error);
         return new NextResponse("Internal Server Error", { status: 500 })
     }

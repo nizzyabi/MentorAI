@@ -11,24 +11,30 @@ import prismadb from "@/lib/prismadb";
 import { increaseApiLimit, checkApiLimit } from "@/lib/api-limit";
 import { userProModal } from "@/hooks/use-pro-modal";
 import { checkSubscription } from "@/lib/subscription";
+import { ProModal } from "@/components/pro-modal";
 
 export async function POST(
   request: Request,
   { params }: { params: { chatId: string } }
 ) {
+
+  
   
   try {
     
     const { prompt } = await request.json();
     const user = await currentUser();
     const isPro = await checkSubscription();
+    
     if (!user || !user.firstName || !user.id) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
+    
     const freeTrial = await checkApiLimit();
     if (!freeTrial && !isPro) {
-      return new NextResponse("API limit exceeded", { status: 429 });
+      
+      return new NextResponse("API limit exceeded", { status: 403 });
     }
 
     const identifier = request.url + "-" + user.id;
@@ -78,6 +84,8 @@ export async function POST(
     if (!isPro){
       await increaseApiLimit();
     }
+
+
     // Query Pinecone
 
     const recentChatHistory = await memoryManager.readLatestHistory(mentorKey);
