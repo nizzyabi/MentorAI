@@ -100,7 +100,7 @@ export const Sidebar = ({
 
     return (
         <div className="space-y-4 flex flex-col h-full text-primary mt-5 bg-[#ECECF1] pl-4 pr-3">
-            {user?.id === 'user_2VTrfY3GPyZltXWvDX6RB955lcC' ? (
+            
                 <div className="p-3 flex flex-1 justify-center">
                 {/* Mapping through each object of the route variable data. */}
                 <div className="space-y-2">
@@ -126,33 +126,7 @@ export const Sidebar = ({
                             ))}
                             </div>
                         </div>
-            ) : (
-                <div className="p-3 flex flex-1 justify-center">
-                {/* Mapping through each object of the route variable data. */}
-                <div className="space-y-2">
-                    {routes2.map((route) => (
-                        <div
-                            // take user to desired route when clicked
-                            onClick={() => onNavigate(route.href, route.pro)}
-
-                            // Rendering the route elements with conditional styling based on wether the pathname matches the href of the route. Using key attirbute for efficient rendering. When the route is active (when user is on that page), there is a different color to the text and background)
-                            key={route.href} 
-                            className={cn(
-                            "text-muted-foreground text-xs group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-secondary/1 hover:opacity-75 transition rounded-lg text-black"
-                            ,
-                            pathname === route.href && "border-bottom border-black text-black font-extrabold"
-                            )}
-                        >
-                            {/* Design & display icon & label */}
-                            <div className="flex flex-col gap-y-2 items-center flex-1">
-                                <route.icon className="h-5 w-5"/>
-                                {route.label}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-            )}
+            
         </div>
     )
 }

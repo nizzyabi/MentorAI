@@ -22,7 +22,7 @@ export const Mentors = ({
     // If the user searches for a mentor and nothing is found, return this.
     if (data.length === 0) {
         return (
-            <div className="pt-10 flex flex-col items-center justify-center space-y-3 bg-[#FAFAFC]">
+            <div className="pt-10 flex flex-col items-center justify-center space-y-3 bg-[#0f0e0e]">
                 <div className="relative w-60 h-60">
                     <Image 
                         fill
@@ -31,7 +31,7 @@ export const Mentors = ({
                         src="/no.svg"
                     />
                 </div>
-                <p className="text-sm text-black">No Mentors Found</p>
+                <p className="text-sm text-white">No Mentors Found</p>
             </div>
         )
     }
@@ -40,12 +40,12 @@ export const Mentors = ({
     return (
         // style so that the cards look different with each display size.
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-2  bg-[#ECECF1] pb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-2 bg-[#0f0e0e] pb-8">
             {/* Map through the data to display the mentor using item.id */}
             {data.map((item) => (
                 <div
                     key={item.id}
-                    className="bg-[#ECECF1] cursor-pointer transition hover:opacity-90 text-black pt-2"
+                    className="bg-[#0f0e0e] cursor-pointer transition hover:opacity-70 text-white pt-2"
                 >
                     {/* Link for the mentor to go to the chat. */}
                     <Link href={`/chat/${item.id}`}>
@@ -66,10 +66,7 @@ export const Mentors = ({
                         <p className="font-bold pt-2">
                             {item.name}
                         </p>
-                    {/* Description of the mentor */}
-                        <p className="text-xs">
-                            {item.description}
-                        </p>  
+                     
                     </div>   
                 </div>
             ))}

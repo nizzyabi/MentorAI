@@ -49,7 +49,7 @@ export const ChatMessage = ({
         )}>
         {/* If the role is not user, render a bot avatar component */}
             {role !== "user" && src && <BotAvatar src={src}/>}
-            <div className="rounded-md px-4 py-2 max-w-sm text-sm bg-gray-300">
+            <div className="rounded-md px-4 py-2 max-w-sm text-sm bg-white">
                 {/* If it is loading, show the loading message, otherwise show the content which we put in chat-messages content*/}
                 {isLoading 
                 ? <BeatLoader 
@@ -64,7 +64,7 @@ export const ChatMessage = ({
             {role !== "user" && !isLoading && (
                 <Button
                     onClick={onCopy}
-                    className="opacity-0 group-hover:opacity-100 transition"
+                    className="opacity-0 text-white group-hover:opacity-100 transition"
                     size="icon"
                     variant="ghost"
                 >

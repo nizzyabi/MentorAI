@@ -72,7 +72,7 @@ export const SearchInput = () => {
                 onChange={onChange}
                 value={value}
                 placeholder={`Search for a mentor... Eg. ${placeholders[placeholderIndex]}`}
-            className="pl-4 mt-0 py-5 bg-[#ECECF1] text-black border-black border-2 text-sm focus:outline-none"
+            className="pl-4 mt-0 py-5 bg-white text-black border-white border-2 text-sm focus:outline-none"
             />
         </div>
     )

@@ -23,7 +23,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         {/* change background color to bg-secondary (for dark mode)*/}
-        <body className={cn("bg-[#ECECF1]", inter.className)}>
+        <body className={cn(inter.className)}>
         {/* You can also change the theme to be forced, your choice of theme (dark or light) by having forcedTheme='dark' or 'light'*/}
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <ProModal />

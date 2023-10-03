@@ -9,18 +9,22 @@ interface MentorIdPageProps {
     params: {
         mentorId: string;
     }
+    
 }; // this is the type of the params object that expects an object with a mentorId property that is a string
 
 const MentorIdPage = async ({
-    params
+    params,
+    
 }: MentorIdPageProps) => {
     // chack if it is the user
     const { userId } = auth();
-
+   
     if (!userId){
         return redirectToSignIn()
     }
     // Check Subscription
+
+    
 
     const mentor = await prismadb.mentor.findUnique({
         where: {
@@ -36,6 +40,7 @@ const MentorIdPage = async ({
         < MentorForm 
             initialData={mentor} // from the mentorform interface
             categories={categories} // from the mentorform interface
+            
         />
     )
 }

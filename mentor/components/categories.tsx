@@ -54,11 +54,11 @@ export const Categories = ({
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
 
-                    <Button onClick={handleButton}className="bg-transparent text-black hover:bg-transparent cursor-pointer" size="icon">
+                    <Button onClick={handleButton}className="bg-transparent text-white hover:bg-transparent cursor-pointer" size="icon">
                         <SlidersHorizontal className='border-none hover:opacity-60'/>
                     </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent>
+                <DropdownMenuContent className="bg-white">
                 <button
                 onClick={() => onClick(undefined)} // When 'newest' button is clicked, we want to reset the search params to undefined & show all mentors.
                 className={cn(`
@@ -75,12 +75,12 @@ export const Categories = ({
                   bg-none
                   transition
                   pb-2 
-                  text-white
+                  text-black
                   cursor-pointer
                   hover:opacity-75 
                   scroll
                 `,
-                  !categoryId ? "bg-transparent" : "transparent"
+                  !categoryId ? "bg-transparent font-bold" : "transparent"
                 )}
             >
                 All Mentors
@@ -105,12 +105,13 @@ export const Categories = ({
                     bg-none
                     transition
                     pb-2 
-                    text-white
+                    text-black
                     cursor-pointer
                     hover:opacity-75 
                     scroll
+                    
                     `,
-                      item.id === categoryId ? "bg-none" : "bg-transparent" // When user clicks on a category, it is highlighted.
+                      item.id === categoryId ? "bg-none font-bold" : "bg-transparent" // When user clicks on a category, it is highlighted.
                     )}
                     key={item.id}
                 >

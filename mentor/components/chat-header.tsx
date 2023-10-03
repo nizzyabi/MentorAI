@@ -53,11 +53,11 @@ export const ChatHeader = ({
     }
 
     return (
-        <div className="flex w-full justify-between items-center border-b border-black pt-3 pb-3">
+        <div className="flex w-full justify-between items-center border-b border-[#bb20d6] pt-3 pb-3">
             {/* Back to Home Page Button */}
             <div className="flex gap-x-2 items-center">
                 <Button onClick={() => router.back()} size="icon" variant="ghost" className="hover:bg-transparent hover:opacity-50">
-                    <ChevronLeft className="h-8 w-8 text-black" />
+                    <ChevronLeft className="h-8 w-8 text-white" />
                 </Button>
             </div>
 
@@ -66,7 +66,7 @@ export const ChatHeader = ({
                 <BotAvatar src={mentor.src} />
                 {/* name of mentor */}
                 <div className="flex items-center gap-x-2">
-                    <p className="font-bold text-black">
+                    <p className="font-bold text-white">
                         {mentor.name}
                     </p>
                 </div>
@@ -75,7 +75,7 @@ export const ChatHeader = ({
             {user?.id === mentor.userId ? (
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Button className="bg-transparent text-black hover:bg-transparent hover:opacity-50" size="icon">
+                        <Button className="bg-transparent text-white hover:bg-transparent hover:opacity-50" size="icon">
                             <MoreVertical />
                         </Button>
                     </DropdownMenuTrigger>
@@ -101,7 +101,7 @@ export const ChatHeader = ({
             ) : (
                 <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <Button className="bg-transparent text-primary/1 hover:bg-transparent" size="icon">
+                    <Button className="bg-transparent text-white hover:bg-transparent" size="icon">
                         <MoreVertical />
                     </Button>
                 </DropdownMenuTrigger>

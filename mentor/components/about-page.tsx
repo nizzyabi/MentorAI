@@ -40,10 +40,10 @@ export default function AboutUs() {
     return (
         <div>
             {/* Header */}
-            <div className="flex items-center justify-center pt-8 pb-5">
-                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
-                    <div className="flex items-center justify-center">
-                        <h1 className="text-black pr-2">Talk to: </h1>
+            <div className="flex items-center justify-center pt-8 pb-5 bg-[#0f0e0e]">
+                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold bg-[#0f0e0e]">
+                    <div className="flex items-center justify-center bg-[#0f0e0e]">
+                        <h1 className="text-white pr-2">Talk to: </h1>
                         <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                         <TypewriterComponent options={{
                     strings: [
@@ -56,7 +56,6 @@ export default function AboutUs() {
                         "Steve Jobs",
                         "Oprah Winfrey",
                         "Elen Degeneres",
-                        "Mark Zuckerberg",
                         "Warren Buffet",
                     ],
                 autoStart: true,
@@ -67,7 +66,7 @@ export default function AboutUs() {
                 </div>
             </div>
             {/* Content */}
-            <div className=" text-lg md:text-xl font-light text-black flex text-center justify-center pr-20 pl-20">
+            <div className=" text-lg md:text-xl font-light text-white flex text-center justify-center pr-20 pl-20 bg-[#0f0e0e]">
                 MyMentorAI leverages cutting-edge artificial intelligence to connect you with the most successful individuals across the world! record video of you texting it
             </div>
             <div className="flex justify-center items-center pt-10">
@@ -84,24 +83,24 @@ export default function AboutUs() {
                 {/* Link to all mentors*/}
                     <div className="flex items-center justify-center pb-5 pt-3">
                         <Link href='/'>
-                            <Button size='lg'className="bg-gradient-to-r from-purple-400 to-pink-600 text-white text-lg">
+                            <Button size='lg'className="bg-gradient-to-r from-purple-400 to-pink-600 text-white text-lg hover:opacity-50">
                                 Talk to a Mentor
                             </Button>
                         </Link>
             </div>
             {/* Why we started */}
             <div>
-                <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl space-y-5 font-extrabold">
-                    <h1 className="text-black text-center pb-4">Why MentorAI?</h1>
+                <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl space-y-5 font-extrabold bg-[#0f0e0e]">
+                    <h1 className="text-white text-center pb-4 bg-[#0f0e0e]">Why MentorAI?</h1>
                 </div>
-                <div className="text-lg md:text-xl font-light text-black flex text-center justify-center pb-3 pr-20 pl-20">
+                <div className="text-lg md:text-xl font-light text-white flex text-center justify-center pb-3 pr-20 pl-20 bg-[#0f0e0e]">
                     {/* put cards & pictures of AI Mentors*/}
                     <p>In the world today, it is important to have a mentor to guide you through tough times & give advice where need be. However, finding a good mentor is hard, especially for new entrepeneurs, artists, and go getters. Thus, we made MyMentorAI for that reason, to help guide you with the best advice from the most successful people.</p>
                 </div>
-                <div className="relative w-66 h-50 flex items-center justify-center p-5">
+                <div className="relative w-66 h-50 flex items-center justify-center p-5 bg-[#0f0e0e]">
                 {/* Map through images*/}  
                 {images2.map((item, index) => (
-                    <div key={index} className="relative w-60 h-60">
+                    <div key={index} className="relative w-60 h-60 bg-[#0f0e0e]">
                         <Image
                             src={item.src}
                             fill
@@ -113,19 +112,19 @@ export default function AboutUs() {
             </div>
             </div>
             {/* Link to all mentors*/}
-                <div className="flex items-center justify-center pb-5 pt-5">
+                <div className="flex items-center justify-center pb-5 pt-5 bg-[#0f0e0e]">
                     <Link href='/'>
-                        <Button size='lg'className="bg-gradient-to-r from-purple-400 to-pink-600 text-white text-lg">
+                        <Button size='lg'className="bg-gradient-to-r from-purple-400 to-pink-600 text-white text-lg hover:opacity-50">
                             Talk to a Mentor
                         </Button>
                     </Link>
                 </div>
             {/* About the company */}
-            <div>
-                <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl space-y-5 font-extrabold">
-                    <h1 className="text-black text-center pb-4">Our Team</h1>
+            <div className="bg-[#0f0e0e]">
+                <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl space-y-5 font-extrabold bg-[#0f0e0e]">
+                    <h1 className="text-white text-center pb-4">Our Team</h1>
                 </div>
-                <div className="text-lg md:text-xl font-light text-black flex text-center justify-center pb-3 pr-20 pl-20">
+                <div className="text-lg md:text-xl font-light text-white flex text-center justify-center pb-3 pr-20 pl-20">
                     {/* put cards & pictures of AI Mentors*/}
                     <p>Our team consists of 5 People. We are incredibly proud to be working on this project together. </p>
                 </div>

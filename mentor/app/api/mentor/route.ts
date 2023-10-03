@@ -38,9 +38,6 @@ export async function POST(req: Request) {
           return new NextResponse("Free trial limit exceeded", { status: 403 });
         }
 
-        
-
-
         {/* Check Subscription */}
 
       // Call data base and interface and create mentor
@@ -61,7 +58,7 @@ export async function POST(req: Request) {
       return NextResponse.json(mentor)
       
       // Check and post error if there is one.
-    } catch (error:any) {
+    } catch (error) {
         console.log("[MENTOR_POST]", error);
         return new NextResponse("Internal Server Error", { status: 500 })
     }

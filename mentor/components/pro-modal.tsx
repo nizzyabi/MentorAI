@@ -48,7 +48,7 @@ export const ProModal = () => {
                     {/* Description #1 */}
                     <DialogDescription className="text-center space-y-2">
                         <Check className="inline-block w-5 h-5" />
-                        <span className="pl-2"><span className="text-purple-500 font-medium">Custom AI</span> Mentors</span>
+                        <span className="pl-2"><span className="text-purple-500 font-medium">Create</span> your own AI Mentors</span>
                     </DialogDescription>
 
                     {/* Description #2 */}
@@ -76,17 +76,11 @@ export const ProModal = () => {
                         <Check className="inline-block w-5 h-5" />
                         <span className="pl-2"><span className="text-purple-500 font-medium">Early Access</span> to New Mentors & Features</span>
                     </DialogDescription>
-
-                    {/* Description #6 */}
-                    <DialogDescription className="text-center space-y-2">
-                        <Check className="inline-block w-5 h-5"/>
-                        <span className="pl-2"><span className="text-purple-500 font-medium">Black & White</span> Mode Access</span>
-                    </DialogDescription>
                 </DialogHeader>
                 <Separator />
                 <div className="flex justify-between">
                     <p className="text-2xl font-medium">
-                        $3
+                        $8
                         <span className="text-sm font-normal">
                             .99 / month
                         </span>

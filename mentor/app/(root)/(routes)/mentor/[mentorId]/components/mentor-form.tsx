@@ -112,6 +112,7 @@ export const MentorForm = ({
             router.push("/")
         // Use toast to show if there is an error
         } catch (error) {
+            
             toast({
                 variant: "destructive",
                 description: "Something went wrong."
@@ -130,7 +131,7 @@ export const MentorForm = ({
                             <h3 className="text-lg font-medium">Create a Mentor</h3>
                             <p className="text-sm text-muted-foreground">Create your own custom mentor. It could be anyone in the world!</p>
                         </div>
-                        <Separator className="bg-primary/10" />
+                        <Separator className="bg-purple-500" />
                     </div>
                     {/* Image Upload Section*/}
                     <FormField 
