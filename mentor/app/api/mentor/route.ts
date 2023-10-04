@@ -12,7 +12,7 @@ export async function POST(req: Request) {
     // Connect to JSON & get the data to parse.
     
     try {
-        const proModal = userProModal();
+        
         const body = await req.json();
         const user = await currentUser();
         const { src, name, description, instructions, seed, categoryId } = body
@@ -28,15 +28,11 @@ export async function POST(req: Request) {
         }
 
         const isPro = await checkSubscription();
+
         if(!isPro) {
             return new NextResponse('Pro Subscription Required', { status: 400 })
         }
 
-        const freeTrial = await checkApiLimit();
-
-        if (!freeTrial) {
-          return new NextResponse("Free trial limit exceeded", { status: 403 });
-        }
 
         {/* Check Subscription */}
 
