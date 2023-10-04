@@ -3,7 +3,7 @@
 import { Mentor, Message } from "@prisma/client";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { ChevronLeft, Edit, Edit2, MessageCircle, MoreVertical, Trash } from "lucide-react";
+import { ChevronLeft, Edit, Edit2, MessageCircle, MoreVertical, Trash } from "lucide-react"; 
 import { BotAvatar } from "@/components/bot-avatar";
 import { useUser } from "@clerk/nextjs";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";

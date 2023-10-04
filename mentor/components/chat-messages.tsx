@@ -45,7 +45,7 @@ export const ChatMessages = ({
                 isLoading={fakeLoading}
                 src={mentor.src}
                 role="system"
-                content={`Hello, my name is ${mentor.name}. What would you like to talk about?`}
+                content={`Hey there! It's ${mentor.name}. What would you like to talk about?`}
                 
             />
             {/* Map through the messages so that they are displayed in the chat*/}

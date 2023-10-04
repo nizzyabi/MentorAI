@@ -1,10 +1,13 @@
+"use client"
 // Imports 
 import { Mentor } from "@prisma/client"
 import Image from "next/image";
 import { Card, CardFooter, CardHeader } from "@/components/ui/card";
 import Link from "next/link";
 import { useState } from "react";
-import '../app/mentors.css'
+import '../app/mentors.css';
+import { useUser } from "@clerk/nextjs";
+
 // Create an interface that stores all the mentors that the user or we add.
 interface MentorsProps {
     // Telling the code that it may get something that it does not expect (count).
@@ -20,6 +23,8 @@ export const Mentors = ({
     data
 }: MentorsProps) => {
     // If the user searches for a mentor and nothing is found, return this.
+    const user = useUser();
+
     if (data.length === 0) {
         return (
             <div className="pt-10 flex flex-col items-center justify-center space-y-3 bg-[#0f0e0e]">
@@ -37,10 +42,12 @@ export const Mentors = ({
     }
     // If there are mentors found (in search OR in the home page) display this
     // TODO: Subscription for more than 10 uses rather than creating. 
+    
     return (
         // style so that the cards look different with each display size.
         
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-2 bg-[#0f0e0e] pb-8">
+            
             {/* Map through the data to display the mentor using item.id */}
             {data.map((item) => (
                 <div
@@ -71,7 +78,7 @@ export const Mentors = ({
                 </div>
             ))}
         </div>
-
+        
 
     )
 }

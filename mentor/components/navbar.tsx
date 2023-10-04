@@ -38,7 +38,7 @@ export const Navbar = ({
     const { userId } = useAuth();
     
     return (
-        <div className="fixed w-full z-50 flex justify-between items-center px-4 cursor-pointer pt-2 bg-[#0f0e0e]">
+        <div className="fixed w-full z-50 flex justify-between items-center px-2 cursor-pointer pt-2 bg-[#0f0e0e]">
             <div className="flex items-center">
                 {/* Getting mobile sidebar function */}
                 <MobileSidebar isPro={isPro} />
@@ -55,7 +55,7 @@ export const Navbar = ({
                             "hidden md:block text-xl md:text-3xl font-bold text-white",
                             {/* Dynamic Font (Poppins) */},
                             font.className 
-                            )}>MyMentorAI</h1>
+                            )}>MyMentor.AI</h1>
                     )}
                 </Link>
             </div>
