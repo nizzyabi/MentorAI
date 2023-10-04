@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 import '../app/mentors.css';
 import { useUser } from "@clerk/nextjs";
+import { MessageCircle, MessagesSquare } from "lucide-react";
 
 // Create an interface that stores all the mentors that the user or we add.
 interface MentorsProps {
@@ -35,6 +36,7 @@ export const Mentors = ({
                         alt="Empty"
                         src="/no.svg"
                     />
+                     
                 </div>
                 <p className="text-sm text-white">No Mentors Found</p>
             </div>
@@ -57,7 +59,7 @@ export const Mentors = ({
                     {/* Link for the mentor to go to the chat. */}
                     <Link href={`/chat/${item.id}`}>
                         {/* Image & Card for the mentor*/}
-                        <div className="flex items-center justify-center text-center text-black">
+                        <div className="flex items-center justify-center text-center text-black mentor">
                             <div className="relative w-[170px] h-[170px]">
                                 <Image
                                     src={item.src}
@@ -65,6 +67,10 @@ export const Mentors = ({
                                     className="rounded-xl object-cover max-w specialBtn"
                                     alt="Mentor"
                                 />
+                                <div className="flex items-center rounded-xl messag hover:bg-black">
+                                    <MessagesSquare className=""/>
+                                    {item._count.messages}
+                                    </div>
                             </div>
                         </div>
                     </Link>
@@ -73,8 +79,8 @@ export const Mentors = ({
                         <p className="font-bold pt-2">
                             {item.name}
                         </p>
+                    </div>
                      
-                    </div>   
                 </div>
             ))}
         </div>
