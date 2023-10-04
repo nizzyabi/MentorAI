@@ -29,12 +29,12 @@ export const FreeCounter = ({
     }
 
     return (
-        <div className="px-3 flex items-center justify-center pt-4">
+        <div className="flex items-center justify-center pt-4">
             <Card className="">
             <CardContent className="">
-                <div className="text-center text-sm text-white">
+                <div className="text-center text-md text-white">
                     <p className="font-bold">
-                        {apiLimitCount} / {MAX_FREE_COUNTS} Free Chats
+                        {apiLimitCount} / {MAX_FREE_COUNTS} <span className="text-purple-500">Free Chats</span> 
                     </p>
                     <Progress 
                         className=" bg-white border-black border-1"

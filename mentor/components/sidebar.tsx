@@ -9,16 +9,15 @@ import { currentUser, useUser } from "@clerk/nextjs";
 
 interface SidebarProps {
     isPro: boolean;
-    data?: Mentor;
+    
 }
 export const Sidebar = ({
-    isPro,
-    data
+    isPro
+    
 }: SidebarProps) => {
     // usePathname is a hook that returns the current pathname of the page. It is a custom hook for stateful navigation & logic.
     const pathname = usePathname()
 
-    const { user }  = useUser();
 
     // Used to access the router object & manage routes.
     const router = useRouter();
@@ -99,7 +98,7 @@ export const Sidebar = ({
     }
 
     return (
-        <div className="space-y-4 flex flex-col h-full text-primary mt-5 bg-[#ECECF1] pl-4 pr-3">
+        <div className="space-y-4 flex flex-col h-full text-primary mt-5 bg-[#0f0e0e] pl-4 pr-3">
             
                 <div className="p-3 flex flex-1 justify-center">
                 {/* Mapping through each object of the route variable data. */}
@@ -112,9 +111,9 @@ export const Sidebar = ({
                             // Rendering the route elements with conditional styling based on wether the pathname matches the href of the route. Using key attirbute for efficient rendering. When the route is active (when user is on that page), there is a different color to the text and background)
                             key={route.href} 
                                         className={cn(
-                                        "text-muted-foreground text-xs group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-secondary/1 hover:opacity-75 transition rounded-lg text-black"
+                                        "text-muted-foreground text-xs group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-secondary/1 hover:opacity-75 transition rounded-lg text-white"
                                         ,
-                                        pathname === route.href && "border-bottom"
+                                        pathname === route.href && "bg-purple-500 opacity-7"
                             )}
                              >
                             {/* Design & display icon & label */}

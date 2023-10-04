@@ -38,10 +38,10 @@ export const Navbar = ({
     const { userId } = useAuth();
     
     return (
-        <div className="fixed w-full z-50 flex justify-between items-center px-4 cursor-pointer pt-2">
+        <div className="fixed w-full z-50 flex justify-between items-center px-4 cursor-pointer pt-2 bg-[#0f0e0e]">
             <div className="flex items-center">
                 {/* Getting mobile sidebar function */}
-                <MobileSidebar />
+                <MobileSidebar isPro={isPro} />
                 {/* Creating link for mobile sidebar */}
                 <Link href='/'>
                     {isPro ? (

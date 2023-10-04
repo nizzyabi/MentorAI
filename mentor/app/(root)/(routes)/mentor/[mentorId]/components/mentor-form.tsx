@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Bot } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
+import { userProModal } from "@/hooks/use-pro-modal";
 
 
 // Seed
@@ -49,6 +50,7 @@ Jeff: You're very welcome! I'm here to support you on your journey. Feel free to
 interface MentorFormProps {
     initialData: Mentor | null;
     categories: Category[];
+    isPro: boolean;
 }
 
 // Form schema for creating mentor
@@ -76,10 +78,12 @@ const formSchema = z.object({
 // Form for creating a new mentor
 export const MentorForm = ({
     categories,
-    initialData
+    initialData,
+    isPro
 }: MentorFormProps) => {
     const router = useRouter();
     const { toast } = useToast();
+    const proModal = userProModal();
     {/* Sepcify form data will handle FormSchema data */}
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -121,6 +125,8 @@ export const MentorForm = ({
     } 
 
     return (
+        <div>
+            
         <div className="h-full p-4 space-y-2 max-w-3xl mx-auto">
             {/* spread form props */}
             <Form {...form}> 
@@ -303,13 +309,15 @@ export const MentorForm = ({
                         />
                         {/* Edit / Create Mentor Button */}
                         <div className="w-full flex justify-center">
+                            
+                         
                             <Button size="lg" disabled={isLoading}>
                                 {initialData ? "Edit your Mentor" : "Create your Mentor"}
-                                <Bot className="w-4 h-4 ml-2"/>
-                            </Button>
+                            </Button> 
                         </div>
                 </form>
             </Form>
+        </div>
         </div>
     )
 }
