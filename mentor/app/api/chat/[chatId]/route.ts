@@ -70,7 +70,7 @@ export async function POST(
     const mentorKey = {
       mentorName: name!,
       userId: user.id,
-      modelName: "llama2-13b",
+      modelName: "llama2-7b",
     };
     const memoryManager = await MemoryManager.getInstance();
 
