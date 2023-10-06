@@ -5,57 +5,110 @@ import Image from "next/image"
 import { Button } from "./ui/button"
 import Link from "next/link"
 import { Card, CardFooter, CardHeader } from "@/components/ui/card";
+import '../app/mentors.css';
 export default function AboutUs() {
 
+
+// Mentor Images 
     const images = [
         {
-            src:'/elon.jpg',
-            name: 'Elon Musk'
+            src:'/bezos.jpg',
+            name: 'Jeff Bezos'
         },
         {
-            src:'/micheal.jpeg',
-            name: 'Micheal Jordan'
-        }
-    ]
-
-    const images2 = [
-        {
-            src:'/bezos.jpg'
+            src:'/buffet.webp',
+            name: 'Warren Buffet'
         },
         {
-            src:'/buffet.webp'
+            src:'/cristiano.webp',
+            name: 'Cristiano Ronaldo'
+        }
+    ]
+// Description of who it is for
+    const whoImg = [
+        {
+            src:'/business-idea.svg',
+            name: 'Entreprenuers',
+            description: 'MyMentorAI equips entrepreneurs with tailored advice and strategies from iconic business pioneers, enabling them to navigate the complex world of startups and enterprises with confidence.',
         },
         {
-            src:'/cristiano.webp'
-        }
-    ]
-
-    const team = [
+            src:'/artist.svg',
+            name: 'Creatives',
+            description: 'From the artistry of cinema to the innovations of engineering, MyMentorAI provides creatives a unique opportunity to seek inspiration and guidance from legendary figures in their respective domains.',
+        },
         {
-            src: '/placeholder.svg',
+            src:'/self.svg',
+            name: 'Self-Improvement',
+            description: 'Those dedicated to personal growth can tap into the profound wisdom and life lessons of world-renowned thinkers, leaders, and visionaries, charting a path of enriched self-discovery and transformation.',
         }
     ]
-
 
     return (
-        <div>
+        <div className="bg-[#0f0e0e] pb-[20px]">
             {/* Header */}
+            <div>
+                <div className="text-6xl md:text-6xl font-bold text-white flex text-center justify-center pr-20 pl-20 pt-6">
+                    <h1>Your Personal Mentor at your fingertips 🦾</h1> 
+                </div>
+                <div className="text-xl md:text-xl font-light text-white flex text-center justify-center pt-4 pb-3 pr-20 pl-20">
+                    <p>Ever wanted to get advice from the best? From celeberties to athletes to Nobel Peice Prize winning scientists, MyMentorAI allows you to talk to who you want, whenever you want.</p>
+                </div>
+                {/* Images of Mentors */}
+
+            </div>
+
+                {/* Link to all mentors */}
+                <div>
+                <div className="relative w-66 h-50 flex items-center justify-center p-5 bg-[#0f0e0e]">
+                {/* Map through images*/}  
+                {images.map((item, index) => (
+                    <div key={index} className="relative w-60 h-60 bg-[#0f0e0e] m-2">
+
+                       
+                        <Image
+                            src={item.src}
+                            fill
+                            className="rounded-xl object-cover specialBtn "
+                            alt="Mentor"
+                        />
+
+                        <div className="flex items-center justify-center mt-[250px]">
+                            {item.name}
+                        </div>
+                        
+
+                    </div>
+                    
+                ))}
+            </div>
+                    <div className="flex items-center justify-center pb-5 pt-[40px]">
+                        <Link href='/'>
+                            <Button size='lg' variant='upgrade'className="hover:opacity-75 text-lg font-semibold">
+                                Try for Free
+                            </Button>
+                        </Link>
+                        
+                    </div>
+                    {/* Link to Reviews*/}
+                    <h1 className="flex justify-center items-center"> <span className="mr-2 text-purple-500">★★★★★</span> 5 stars from 452 users</h1>
+            </div>
             <div className="flex items-center justify-center pt-8 pb-5 bg-[#0f0e0e]">
+                {/* Moving Text */}
                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold bg-[#0f0e0e]">
-                    <div className="flex items-center justify-center bg-[#0f0e0e]">
+                <div className="flex items-center justify-center bg-[#0f0e0e]">
                         <h1 className="text-white pr-2">Talk to: </h1>
                         <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                         <TypewriterComponent options={{
                     strings: [
                         " Elon Musk",
                         " Jeff Bezos",
-                        " Micheal Jordan",
+                        " Aristotle",
                         "Bill Gates",
-                        "Pablo Picasso",
-                        "Albert Einstein",
+                        "Plato",
+                        "Tiger Woods",
                         "Steve Jobs",
                         "Oprah Winfrey",
-                        "Elen Degeneres",
+                        "Jack Ma",
                         "Warren Buffet",
                     ],
                 autoStart: true,
@@ -65,81 +118,67 @@ export default function AboutUs() {
                     </div>
                 </div>
             </div>
-            {/* Content */}
-            <div className=" text-lg md:text-xl font-light text-white flex text-center justify-center pr-20 pl-20 bg-[#0f0e0e]">
-                MyMentorAI leverages cutting-edge artificial intelligence to connect you with the most successful individuals across the world! record video of you texting it
-            </div>
-            <div className="flex justify-center items-center pt-10">
-            <iframe 
-            width="560" 
-            height="315" 
-            src="https://www.youtube.com/embed/nqZE7a88zwo?si=aUSRi8qoYANh0_1J" 
-            title="YouTube video player" 
-            style={{ border: "none" }}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowFullScreen>
-            </iframe>
-            </div>
-                {/* Link to all mentors*/}
-                    <div className="flex items-center justify-center pb-5 pt-3">
-                        <Link href='/'>
-                            <Button size='lg'className="bg-gradient-to-r from-purple-400 to-pink-600 text-white text-lg hover:opacity-50">
-                                Talk to a Mentor
-                            </Button>
-                        </Link>
-            </div>
             {/* Why we started */}
             <div>
                 <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl space-y-5 font-extrabold bg-[#0f0e0e]">
-                    <h1 className="text-white text-center pb-4 bg-[#0f0e0e]">Why MentorAI?</h1>
+                    <h1 className="flex justify-center items-center">How to use My Mentor AI: </h1>
                 </div>
-                <div className="text-lg md:text-xl font-light text-white flex text-center justify-center pb-3 pr-20 pl-20 bg-[#0f0e0e]">
-                    {/* put cards & pictures of AI Mentors*/}
-                    <p>In the world today, it is important to have a mentor to guide you through tough times & give advice where need be. However, finding a good mentor is hard, especially for new entrepeneurs, artists, and go getters. Thus, we made MyMentorAI for that reason, to help guide you with the best advice from the most successful people.</p>
+                
+
+            
+
+            <div className="flex justify-center items-center pt-10">
+                <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/4dYulILD1Ak?si=BMnOuposr-DkDgr9" 
+                    title="YouTube video player" 
+                    style={{ border: "none" }}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowFullScreen
+                >
+                </iframe>
                 </div>
-                <div className="relative w-66 h-50 flex items-center justify-center p-5 bg-[#0f0e0e]">
-                {/* Map through images*/}  
-                {images2.map((item, index) => (
-                    <div key={index} className="relative w-60 h-60 bg-[#0f0e0e]">
-                        <Image
-                            src={item.src}
-                            fill
-                            className="rounded-xl object-cover p-3"
-                            alt="Companion"
-                        />
-                    </div>
-                ))}
-            </div>
             </div>
             {/* Link to all mentors*/}
                 <div className="flex items-center justify-center pb-5 pt-5 bg-[#0f0e0e]">
                     <Link href='/'>
-                        <Button size='lg'className="bg-gradient-to-r from-purple-400 to-pink-600 text-white text-lg hover:opacity-50">
-                            Talk to a Mentor
+                        <Button size='lg' variant="upgrade"className="text-lg hover:opacity-50 font-semibold">
+                            Try For Free
                         </Button>
                     </Link>
                 </div>
             {/* About the company */}
-            <div className="bg-[#0f0e0e]">
+            <div className="bg-[#0f0e0e] pt-5">
                 <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl space-y-5 font-extrabold bg-[#0f0e0e]">
-                    <h1 className="text-white text-center pb-4">Our Team</h1>
+                    <h1 className="text-white text-center pb-1">Who is this for?</h1>
                 </div>
-                <div className="text-lg md:text-xl font-light text-white flex text-center justify-center pb-3 pr-20 pl-20">
-                    {/* put cards & pictures of AI Mentors*/}
-                    <p>Our team consists of 5 People. We are incredibly proud to be working on this project together. </p>
-                </div>
-                <div className="relative max-w h-50 flex items-center justify-center pb-3">
+                <div className="relative w-66 h-50 flex items-center justify-center p-5 bg-[#0f0e0e]">
                 {/* Map through images*/}  
-                
-                    <div className="relative w-[500px] h-[400px]">
+                {whoImg.map((item, index) => (
+                    <div key={index} className="relative w-60 h-60 m-2">
+
+                       
                         <Image
-                            src='/dev-team.jpeg'
+                            src={item.src}
                             fill
-                            className="rounded-xl object-cover p-3"
-                            alt="Companion"
+                            className="rounded-xl object-cover bg-gray-500 border-white border-2 "
+                            alt="Mentor"
                         />
+                        
+                        <div className="flex items-center justify-center font-bold text-lg mt-[250px] bg-[#0f0e0e] ">
+                            {item.name}
+                            
+                        </div>
+                        <div className="bg-purple-500 rounded-xl mt-[10px] p-5 border-white border-2 h-[320px] lg:h-[300px]">
+                        <div className="flex items-center justify-center text-center text-md">
+                            {item.description}
+                        </div>
+                        </div>
+
                     </div>
-                
+                    
+                ))}
             </div>
             </div>
         </div>
