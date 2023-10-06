@@ -64,7 +64,7 @@ export const Mentors = ({
                                 <Image
                                     src={item.src}
                                     fill
-                                    className="rounded-xl object-cover max-w specialBtn"
+                                    className="rounded-xl object-cover max-w"
                                     alt="Mentor"
                                 />
                                 <div className="flex items-center rounded-xl messag hover:bg-black">

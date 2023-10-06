@@ -170,7 +170,7 @@ export default function AboutUs() {
                             {item.name}
                             
                         </div>
-                        <div className="bg-purple-500 rounded-xl mt-[10px] p-5 border-white border-2 h-[320px] lg:h-[300px]">
+                        <div className="bg-pink-500 rounded-xl mt-[10px] p-5 border-white border-2 h-[320px] lg:h-[300px]">
                         <div className="flex items-center justify-center text-center text-md">
                             {item.description}
                         </div>

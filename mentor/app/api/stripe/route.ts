@@ -58,7 +58,7 @@ export async function GET() {
                             description: "Create Custom AI Mentors & Get Early Access to New Features",
                         },
                         // cost
-                        unit_amount: 899,
+                        unit_amount: 999,
                         // subscription
                         recurring: {
                             interval: "month",
