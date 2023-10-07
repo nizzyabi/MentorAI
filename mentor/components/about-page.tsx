@@ -35,7 +35,7 @@ export default function AboutUs() {
         {
             src:'/artist.svg',
             name: 'Creatives',
-            description: 'From the artistry of cinema to the innovations of engineering, MyMentorAI provides creatives a unique opportunity to seek inspiration and guidance from legendary figures in their respective domains.',
+            description: 'From the artistry of cinema to the innovations of engineering, MyMentorAI provides creatives a unique opportunity to seek inspiration and guidance from legendary figures.',
         },
         {
             src:'/self.svg',
@@ -48,7 +48,7 @@ export default function AboutUs() {
         <div className="bg-[#0f0e0e]">
             {/* Header */}
             <div className="bg-[#0f0e0e]">
-                <div className="text-6xl md:text-6xl font-bold text-white flex text-center justify-center pr-20 pl-20 pt-6 bg-[#0f0e0e] ">
+                <div className="text-6xl md:text-6xl font-bold text-white flex text-center justify-center pr-20 pl-20 bg-[#0f0e0e] ">
                     <h1>Your Personal Mentor at your fingertips 🦾</h1> 
                 </div>
                 <div className="text-xl md:text-xl font-light text-white flex text-center justify-center pt-4 pb-3 pr-20 pl-20">
@@ -80,6 +80,7 @@ export default function AboutUs() {
                     
                 ))}
             </div>
+            {/* Button */}
                     <div className="flex items-center justify-center pb-5 pt-[30px] bg-[#0f0e0e]">
                         <Link href='/'>
                             <Button size='lg' variant='upgrade'className="hover:opacity-75 text-lg font-semibold">
@@ -138,7 +139,7 @@ export default function AboutUs() {
                 </iframe>
                 </div>
             </div>
-            {/* Link to all mentors*/}
+            {/* Button */}
                 <div className="flex items-center justify-center mb-5 mt-5 bg-[#0f0e0e]">
                     <Link href='/'>
                         <Button size='lg' variant="upgrade"className="text-lg hover:opacity-50 font-semibold">
@@ -146,7 +147,27 @@ export default function AboutUs() {
                         </Button>
                     </Link>
                 </div>
-            {/* About the company */}
+                {/* Features we have */}
+                <div className="mb-[30px] text-center items-center">
+                <h1 className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl font-extrabold">Some Cool Features We Have:</h1>
+                <div className="pt-4 text-lg">
+                    <h1 className="p-2"><span className="text-purple-500">✔</span> Create your own AI Mentors</h1>
+                    <h1 className="p-2"><span className="text-purple-500">✔</span> Talk to historic figures of the past</h1>
+                    <h1 className="p-2"><span className="text-purple-500">✔</span> Mentors will remember your past chats with them</h1>
+                    <h1 className="p-2"><span className="text-purple-500">✔</span> Unlimited chats</h1>
+                    <h1 className="p-2"><span className="text-purple-500">✔</span> Managed & ran by the community</h1>
+                    <h1 className="p-2"><span className="text-purple-500">✔</span> Latest & greatest AI models</h1>
+                </div>
+                {/* Button */}
+                <div className="flex items-center justify-center mb-5 mt-5 bg-[#0f0e0e]">
+                    <Link href='/'>
+                        <Button size='lg' variant="upgrade"className="text-lg hover:opacity-50 font-semibold">
+                            Try For Free
+                        </Button>
+                    </Link>
+                </div>
+            </div>
+            {/* Reviews ( Twitter )*/}
                 <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl  font-extrabold bg-[#0f0e0e]">
                     <h1 className="text-white text-center pb-1">Who is this for?</h1>
                 </div>
@@ -157,15 +178,15 @@ export default function AboutUs() {
                         <Image
                             src={item.src}
                             fill
-                            className="rounded-xl object-cover bg-gray-500 border-white border-2 "
+                            className="rounded-xl object-cover bg-gray-500 border-white border-2  "
                             alt="Mentor"
                         />
                         
-                        <div className="flex items-center justify-center font-bold text-lg  bg-tranparent mt-[250px] bg-">
+                        <div className="flex items-center justify-center font-bold text-lg  bg-tranparent mt-[250px]">
                             {item.name}
                             
                         </div>
-                        <div className="bg-purple-500 rounded-xl mt-[10px] p-5 border-white border-2 sm:h-[620px] md:h-[300px]">
+                        <div className="bg-purple-500 rounded-xl mt-[10px] p-5 border-white border-2 sm:h-[320px] md:h-[300px]">
                         <div className="flex items-center justify-center text-center text-md">
                             {item.description}
                         </div>
@@ -175,6 +196,7 @@ export default function AboutUs() {
                     
                 ))}
             </div>
+
            
            
             

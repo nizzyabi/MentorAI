@@ -6,7 +6,7 @@ import * as z from "zod"; // from forms shadcn
 import { Category, Mentor } from "@prisma/client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
+import './mentor.css';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"; 
 import { Separator } from "@/components/ui/separator";
 import ImageUpload from "@/components/image-upload";
@@ -50,7 +50,7 @@ Jeff: You're very welcome! I'm here to support you on your journey. Feel free to
 interface MentorFormProps {
     initialData: Mentor | null;
     categories: Category[];
-    isPro: boolean;
+    
 }
 
 // Form schema for creating mentor
@@ -61,10 +61,10 @@ const formSchema = z.object({
     description: z.string().min(1, {
         message: "Description is required.",
     }),
-    instructions: z.string().min(5, {
+    instructions: z.string().min(100, {
         message: "Instructions require atleast 5 characters.",
     }),
-    seed: z.string().min(5, {
+    seed: z.string().min(100, {
         message: "Seed requires atleast 5 characters.",
     }),
     src: z.string().min(1, {
@@ -79,7 +79,7 @@ const formSchema = z.object({
 export const MentorForm = ({
     categories,
     initialData,
-    isPro
+    
 }: MentorFormProps) => {
     const router = useRouter();
     const { toast } = useToast();
@@ -110,7 +110,8 @@ export const MentorForm = ({
                 await axios.post("/api/mentor", values);
             }
             toast({
-                description: "Success!"
+                description: "Success!",
+                
             });
             router.refresh(); // refresh ALL server components to ensure that the new mentor is shown.
             router.push("/")

@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { userProModal } from "@/hooks/use-pro-modal"
 import { Separator } from "@/components/ui/separator";
@@ -17,6 +17,14 @@ export const ProModal = () => {
     const { toast } = useToast();
     // Loading State
     const [loading, setLoading] = useState(false);
+
+    //Mounted state if there are any hydration errors
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true)
+    }, [])
+
     // When they click on sub take them to pay
     const onSubscribe = async () => {
         try {

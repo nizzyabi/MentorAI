@@ -1,5 +1,6 @@
 // This works because it is a file in the mentor folder and a dynamic route [] is a folder in the mentor folder. and because our create link is linked to /mentor, the code looks for the mentor folder in routes and finds the [mentorId] folder and then the page.tsx file.
 
+// ADD A MASTER KEY FOR YOU TO REMOVE ANY MENTOR 
 import prismadb from "@/lib/prismadb";
 import { MentorForm } from "./components/mentor-form";
 import { auth, redirectToSignIn } from "@clerk/nextjs";
