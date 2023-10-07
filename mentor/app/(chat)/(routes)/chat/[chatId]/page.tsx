@@ -34,7 +34,7 @@ const ChatIdPage = async ({
         include: {
             messages: {
                 orderBy: {
-                    createdAt: "desc",
+                    createdAt: "asc",
                 },
                 // Only load the messages between the mentor and the current user. 
                 where: {

@@ -5,7 +5,8 @@ import Image from "next/image"
 import { Button } from "./ui/button"
 import Link from "next/link"
 import { Card, CardFooter, CardHeader } from "@/components/ui/card";
-import '../app/mentors.css';
+import '../app/about.css';
+import { Check } from "lucide-react"
 export default function AboutUs() {
 
 
@@ -44,10 +45,10 @@ export default function AboutUs() {
     ]
 
     return (
-        <div className="bg-[#0f0e0e] pb-[20px]">
+        <div className="bg-[#0f0e0e]">
             {/* Header */}
-            <div>
-                <div className="text-6xl md:text-6xl font-bold text-white flex text-center justify-center pr-20 pl-20 pt-6">
+            <div className="bg-[#0f0e0e]">
+                <div className="text-6xl md:text-6xl font-bold text-white flex text-center justify-center pr-20 pl-20 pt-6 bg-[#0f0e0e] ">
                     <h1>Your Personal Mentor at your fingertips 🦾</h1> 
                 </div>
                 <div className="text-xl md:text-xl font-light text-white flex text-center justify-center pt-4 pb-3 pr-20 pl-20">
@@ -58,21 +59,19 @@ export default function AboutUs() {
             </div>
 
                 {/* Link to all mentors */}
-                <div>
+                <div className="bg-[#0f0e0e]">
                 <div className="relative w-66 h-50 flex items-center justify-center p-5 bg-[#0f0e0e]">
                 {/* Map through images*/}  
                 {images.map((item, index) => (
                     <div key={index} className="relative w-60 h-60 bg-[#0f0e0e] m-2">
-
-                       
                         <Image
                             src={item.src}
                             fill
-                            className="rounded-xl object-cover specialBtn "
+                            className="rounded-xl object-cover border-purple-500 border-2 "
                             alt="Mentor"
                         />
 
-                        <div className="flex items-center justify-center mt-[250px]">
+                        <div className="flex items-center justify-center mt-[250px] bg-[#0f0e0e]">
                             {item.name}
                         </div>
                         
@@ -81,7 +80,7 @@ export default function AboutUs() {
                     
                 ))}
             </div>
-                    <div className="flex items-center justify-center pb-5 pt-[40px]">
+                    <div className="flex items-center justify-center pb-5 pt-[30px] bg-[#0f0e0e]">
                         <Link href='/'>
                             <Button size='lg' variant='upgrade'className="hover:opacity-75 text-lg font-semibold">
                                 Try for Free
@@ -125,9 +124,8 @@ export default function AboutUs() {
                 </div>
                 
 
-            
-
-            <div className="flex justify-center items-center pt-10">
+            {/* Embed Video Showing How To Use App*/}
+            <div className="flex justify-center items-center mt-10">
                 <iframe 
                     width="560" 
                     height="315" 
@@ -141,7 +139,7 @@ export default function AboutUs() {
                 </div>
             </div>
             {/* Link to all mentors*/}
-                <div className="flex items-center justify-center pb-5 pt-5 bg-[#0f0e0e]">
+                <div className="flex items-center justify-center mb-5 mt-5 bg-[#0f0e0e]">
                     <Link href='/'>
                         <Button size='lg' variant="upgrade"className="text-lg hover:opacity-50 font-semibold">
                             Try For Free
@@ -149,16 +147,13 @@ export default function AboutUs() {
                     </Link>
                 </div>
             {/* About the company */}
-            <div className="bg-[#0f0e0e] pt-5">
-                <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl space-y-5 font-extrabold bg-[#0f0e0e]">
+                <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl  font-extrabold bg-[#0f0e0e]">
                     <h1 className="text-white text-center pb-1">Who is this for?</h1>
                 </div>
                 <div className="relative w-66 h-50 flex items-center justify-center p-5 bg-[#0f0e0e]">
                 {/* Map through images*/}  
                 {whoImg.map((item, index) => (
-                    <div key={index} className="relative w-60 h-60 m-2">
-
-                       
+                    <div key={index} className="relative w-60 h-60 m-2 bg-[#0f0e0e]">
                         <Image
                             src={item.src}
                             fill
@@ -166,11 +161,11 @@ export default function AboutUs() {
                             alt="Mentor"
                         />
                         
-                        <div className="flex items-center justify-center font-bold text-lg mt-[250px] bg-[#0f0e0e] ">
+                        <div className="flex items-center justify-center font-bold text-lg  bg-tranparent mt-[250px] bg-">
                             {item.name}
                             
                         </div>
-                        <div className="bg-pink-500 rounded-xl mt-[10px] p-5 border-white border-2 h-[320px] lg:h-[300px]">
+                        <div className="bg-purple-500 rounded-xl mt-[10px] p-5 border-white border-2 sm:h-[620px] md:h-[300px]">
                         <div className="flex items-center justify-center text-center text-md">
                             {item.description}
                         </div>
@@ -180,7 +175,10 @@ export default function AboutUs() {
                     
                 ))}
             </div>
-            </div>
+           
+           
+            
+            
         </div>
     )
 }
