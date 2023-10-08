@@ -38,7 +38,7 @@ export const Navbar = ({
     const { userId } = useAuth();
     
     return (
-        <div className="fixed w-full z-50 flex justify-between items-center px-2 cursor-pointer pt-2 bg-[#0f0e0e]">
+        <div className="w-full z-50 flex justify-between items-center px-2 cursor-pointer pt-3 pb-1 fixed bg-[#0f0e0e]">
             <div className="flex items-center">
                 {/* Getting mobile sidebar function */}
                 <MobileSidebar isPro={isPro} />
@@ -62,7 +62,7 @@ export const Navbar = ({
             
             <div className="flex items-center gap-x-3">
                 <div className="flex items-center">
-                    {!isPro ? (
+                    {!isPro && userId ? (
                         <FreeCounter 
                             apiLimitCount={apiLimitCount}
                         />
@@ -75,6 +75,7 @@ export const Navbar = ({
                 
                 {/* If not pro, render button */}
                 {!isPro && userId && (
+                    
                             <Button onClick={proModal.onOpen} size="sm" variant='upgrade' className="hover:opacity-75">
                                 MentorPro
                                 <Zap className="h-4 w-4 fill-white text-white ml-2" />

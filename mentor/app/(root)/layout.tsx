@@ -19,7 +19,7 @@ const RootLayout = async ({
             <Navbar isPro={isPro} apiLimitCount={apiLimitCount}/>
 
             {/* SideBar */}
-            <div className="hidden md:flex mt-[62px] w-20 flex-col fixed inset-y-0 bg-[#0f0e0e]">
+            <div className="hidden md:flex mt-[62px] fixed w-20 flex-col inset-y-0 ">
                 <Sidebar isPro={isPro} />
             </div>
             <main className="md:pl-20 pt-20 h-full bg-[#0f0e0e]">

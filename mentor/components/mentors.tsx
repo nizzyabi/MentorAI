@@ -68,7 +68,7 @@ export const Mentors = ({
                                     alt="Mentor"
                                 />
                                 <div className="flex items-center rounded-xl messag hover:bg-black">
-                                    <MessagesSquare className=""/>
+                                    <MessageCircle className=""/>
                                     {item._count.messages}
                                     </div>
                             </div>

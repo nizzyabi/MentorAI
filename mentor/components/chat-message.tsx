@@ -39,6 +39,7 @@ export const ChatMessage = ({
         navigator.clipboard.writeText(content);
         toast({
             description: "Copied to clipboard!",
+            duration: 2500
         });
     }
     return (

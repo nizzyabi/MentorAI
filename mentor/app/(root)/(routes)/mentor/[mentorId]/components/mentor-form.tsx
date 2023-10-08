@@ -62,10 +62,10 @@ const formSchema = z.object({
         message: "Description is required.",
     }),
     instructions: z.string().min(100, {
-        message: "Instructions require atleast 5 characters.",
+        message: "Instructions require atleast 100 characters.",
     }),
     seed: z.string().min(100, {
-        message: "Seed requires atleast 5 characters.",
+        message: "Example conversation requires atleast 100 characters.",
     }),
     src: z.string().min(1, {
         message: "Image is required.",
@@ -111,6 +111,8 @@ export const MentorForm = ({
             }
             toast({
                 description: "Success!",
+                duration: 2000,
+
                 
             });
             router.refresh(); // refresh ALL server components to ensure that the new mentor is shown.
@@ -120,7 +122,8 @@ export const MentorForm = ({
             
             toast({
                 variant: "destructive",
-                description: "Something went wrong."
+                description: "Something went wrong.",
+                duration: 2500,
             })
         }
     } 

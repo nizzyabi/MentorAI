@@ -39,7 +39,8 @@ export const ChatHeader = ({
             await axios.delete(`/api/mentor/${mentor.id}`);
 
             toast({
-                description: "Mentor Deleted."
+                description: "Mentor Deleted.",
+                duration: 2500
             })
             // refresh page & take user to home page
             router.refresh();
@@ -47,13 +48,14 @@ export const ChatHeader = ({
         } catch (error) {
             toast({
                 description: "Something Went Wrong.",
-                variant: "destructive"
+                variant: "destructive",
+                duration: 2500
             })
         }
     }
 
     return (
-        <div className="flex w-full justify-between items-center border-b border-[#bb20d6] pt-3 pb-3">
+        <div className="flex w-full justify-between items-center border-b pt-3 pb-3">
             {/* Back to Home Page Button */}
             <div className="flex gap-x-2 items-center">
                 <Button onClick={() => router.back()} size="icon" variant="ghost" className="hover:bg-transparent hover:opacity-50">
