@@ -1,5 +1,6 @@
 // Imports
 import './globals.css'
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
@@ -28,6 +29,8 @@ export default function RootLayout({
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <ProModal />
           {children}
+          {/* Analytics */}
+          <Analytics />
           {/* Toaster from ShadCN*/}
           <Toaster />
         </ThemeProvider>
