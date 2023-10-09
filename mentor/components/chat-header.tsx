@@ -3,13 +3,14 @@
 import { Mentor, Message } from "@prisma/client";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { ChevronLeft, Edit, Edit2, MessageCircle, MoreVertical, Trash } from "lucide-react"; 
+import { ChevronLeft, Edit, Edit2, LucideActivity, MessageCircle, MoreVertical, Trash } from "lucide-react"; 
 import { BotAvatar } from "@/components/bot-avatar";
 import { useUser } from "@clerk/nextjs";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { ModeToggle } from "./mode-toggle";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
+import Link from "next/link";
 
 interface ChatHeaderProps {
     mentor: Mentor & {
@@ -98,6 +99,13 @@ export const ChatHeader = ({
                             <MessageCircle className="w-4 h-4 mr-2" />
                             {mentor._count.messages} Chats
                         </DropdownMenuItem>
+
+                        {/* Prompt Examples */}
+                        <DropdownMenuItem className="font-bold">
+                            <Link href='https://www.nytimes.com/2023/05/25/technology/ai-chatbot-chatgpt-prompts.html'>
+                             Eg. Prompts
+                            </Link>
+                        </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             ) : (
@@ -113,6 +121,13 @@ export const ChatHeader = ({
                         <MessageCircle className="w-4 h-4 mr-2" />
                         {mentor._count.messages} Chats
                     </DropdownMenuItem>
+
+                        {/* Prompt Examples */}
+                        <DropdownMenuItem className="font-bold">
+                            <Link href='https://www.nytimes.com/2023/05/25/technology/ai-chatbot-chatgpt-prompts.html'>
+                             Eg. Prompts
+                            </Link>
+                        </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
             )}

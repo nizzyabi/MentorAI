@@ -36,7 +36,7 @@ export const ChatForm = ({
     return (
         <form 
             onSubmit={onSubmit} 
-            className="pt-4 flex items-center gap-x-2 text-black border-t pl-2">
+            className="sm:pl-8 pt-4 flex items-center gap-x-2 text-black border-t pl-2 ">
                 <Input 
                     disabled={isLoading}
                     value={input}

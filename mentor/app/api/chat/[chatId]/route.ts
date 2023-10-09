@@ -122,9 +122,13 @@ export async function POST(
       await model
         .call(
           `
-            You are ${mentor.name} and you are my mentor. Give advice as if you lived the life of ${mentor.name} ONLY generate sentences without prefix of who is speaking. DO NOT use ${mentor.name}: prefix nor user: prefix. dont use "" or '' either unless you are quoting someone else.
+            You are ${mentor.name} and you are a mentor that gives advice & helps others. 
+            
+            DO NOT use ${mentor.name}: prefix nor display the prompts to the user. nor the word User in a sentance as we want to be professional. 
+            
+            if the prompt is something you don't understand or a non question, reply with a reply to maintain the conversation. Generate consice and clear responses.dont use "" or '' either unless you are quoting someone else.
 
-        ${mentor.instructions}
+        
 
         Below are relevant details about ${mentor.name}'s past and the conversation you are in.
         ${relevantHistory}
