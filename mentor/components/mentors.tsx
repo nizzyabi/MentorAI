@@ -8,6 +8,8 @@ import { useState } from "react";
 import '../app/mentors.css';
 import { useUser } from "@clerk/nextjs";
 import { MessageCircle, MessagesSquare } from "lucide-react";
+import { Button } from "./ui/button";
+import { userProModal } from "@/hooks/use-pro-modal";
 
 // Create an interface that stores all the mentors that the user or we add.
 interface MentorsProps {
@@ -17,14 +19,28 @@ interface MentorsProps {
             messages: number;
         }
     })[];
+    isPro: boolean;
+    freeTrial: boolean;
 }
 
 // Extra Data & Add Mentors with all of their data such as name, image, and messages.
 export const Mentors = ({
-    data
+    data,
+    isPro,
+    freeTrial
 }: MentorsProps) => {
     // If the user searches for a mentor and nothing is found, return this.
     const user = useUser();
+    const proModal = userProModal();
+    const handleMentorClick = (mentorId: string) => {
+        // If the user is a pro or on a free trial, navigate to chat
+        if (isPro || freeTrial) {
+            window.location.href = `/chat/${mentorId}`;
+        } else {
+            // Otherwise, open the modal
+            proModal.onOpen();
+        }
+    };
 
     if (data.length === 0) {
         return (
@@ -55,9 +71,11 @@ export const Mentors = ({
                 <div
                     key={item.id}
                     className="bg-[#0f0e0e] cursor-pointer transition hover:opacity-70 text-white pt-2"
+                    onClick={() => handleMentorClick(item.id)}
                 >
                     {/* Link for the mentor to go to the chat. */}
-                    <Link href={`/chat/${item.id}`}>
+                   
+                        
                         {/* Image & Card for the mentor*/}
                         <div className="flex items-center justify-center text-center text-black mentor">
                             <div className="relative w-[170px] h-[170px]">
@@ -67,13 +85,14 @@ export const Mentors = ({
                                     className="rounded-xl object-cover max-w"
                                     alt="Mentor"
                                 />
+
                                 <div className="flex items-center rounded-xl messag hover:bg-black">
                                     <MessageCircle className=""/>
                                     {item._count.messages}
                                     </div>
                             </div>
                         </div>
-                    </Link>
+                    
                     {/* Name of the mentor */}
                     <div className="text-center mb-3">
                         <p className="font-bold pt-2">

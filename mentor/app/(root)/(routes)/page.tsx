@@ -5,7 +5,9 @@ import { Categories } from "@/components/categories"
 import { Mentors } from "@/components/mentors";
 import { SearchInput } from "@/components/search-input"
 import { Button } from "@/components/ui/button";
+import { checkApiLimit } from "@/lib/api-limit";
 import prismadb from "@/lib/prismadb"
+import { checkSubscription } from "@/lib/subscription";
 
 // Create interface for root page showing the mentors
 interface RootPageProps {
@@ -37,13 +39,15 @@ const RootPage = async ({
         }
     })
     const categories = await prismadb.category.findMany() // Get all categories from the database
+    const isPro = await checkSubscription();
+    const freeTrial = await checkApiLimit();
 
     return (
         <div className="h-full p-4 space-y-2 ">
             {/* Search Bar imported from components for users to search */}
             <SearchInput />
             <Categories data={categories}/>
-            <Mentors data={data} />
+            <Mentors data={data} isPro={isPro} freeTrial={freeTrial} />
         </div>
     )
 }
