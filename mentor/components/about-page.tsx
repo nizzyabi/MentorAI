@@ -141,16 +141,9 @@ export default function AboutUs() {
 
             {/* Embed Video Showing How To Use App*/}
             <div className="flex justify-center items-center mt-10">
-                <iframe 
-                    width="560" 
-                    height="315" 
-                    src="https://www.youtube.com/embed/4dYulILD1Ak?si=BMnOuposr-DkDgr9" 
-                    title="YouTube video player" 
-                    style={{ border: "none" }}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowFullScreen
-                >
-                </iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/6is0CRS2krU?si=VCiIbhBFeS_bzGf7" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+
+            </iframe>
                 </div>
             </div>
             {/* Button */}
