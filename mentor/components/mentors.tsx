@@ -1,14 +1,10 @@
 "use client"
 // Imports 
+import { useUser } from "@clerk/nextjs";
 import { Mentor } from "@prisma/client"
 import Image from "next/image";
-import { Card, CardFooter, CardHeader } from "@/components/ui/card";
-import Link from "next/link";
-import { useState } from "react";
 import '../app/mentors.css';
-import { useUser } from "@clerk/nextjs";
-import { MessageCircle, MessagesSquare } from "lucide-react";
-import { Button } from "./ui/button";
+import { MessageCircle } from "lucide-react";
 import { userProModal } from "@/hooks/use-pro-modal";
 
 // Create an interface that stores all the mentors that the user or we add.
@@ -21,18 +17,28 @@ interface MentorsProps {
     })[];
     isPro: boolean;
     freeTrial: boolean;
+    
+    
 }
 
 // Extra Data & Add Mentors with all of their data such as name, image, and messages.
 export const Mentors = ({
     data,
     isPro,
-    freeTrial
+    freeTrial,
+    
+    
 }: MentorsProps) => {
     // If the user searches for a mentor and nothing is found, return this.
-    const user = useUser();
+    const { user } = useUser();
     const proModal = userProModal();
+   
     const handleMentorClick = (mentorId: string) => {
+        // If user is not logged in, redirect to sign in page
+        if (!user) {
+            window.location.href='/sign-in';
+            return;
+        }
         // If the user is a pro or on a free trial, navigate to chat
         if (isPro || freeTrial) {
             window.location.href = `/chat/${mentorId}`;

@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { checkApiLimit } from "@/lib/api-limit";
 import prismadb from "@/lib/prismadb"
 import { checkSubscription } from "@/lib/subscription";
+import { auth } from "@clerk/nextjs";
 
 // Create interface for root page showing the mentors
 interface RootPageProps {
@@ -41,6 +42,7 @@ const RootPage = async ({
     const categories = await prismadb.category.findMany() // Get all categories from the database
     const isPro = await checkSubscription();
     const freeTrial = await checkApiLimit();
+    
 
     return (
         <div className="h-full p-4 space-y-2 ">
