@@ -13,7 +13,7 @@ export default function AboutUs() {
 // Mentor Images 
     const images = [
         {
-            src:'/Elon.jpg',
+            src:'/Elon.jpeg',
             name: 'Elon Musk'
         },
         {
