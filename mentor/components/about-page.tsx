@@ -12,10 +12,7 @@ export default function AboutUs() {
 
 // Mentor Images 
     const images = [
-        {
-            src:'/Elon.jpeg',
-            name: 'Elon Musk'
-        },
+        
         {
             src:'/buffet.webp',
             name: 'Warren Buffet'
