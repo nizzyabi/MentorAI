@@ -30,12 +30,12 @@ export async function POST(
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    
     const freeTrial = await checkApiLimit();
     if (!freeTrial && !isPro) {
       
       return new NextResponse("API limit exceeded", { status: 403 });
     }
+    
 
     const identifier = request.url + "-" + user.id;
     const { success } = await rateLimit(identifier);
@@ -141,13 +141,6 @@ export async function POST(
 
             You are ${mentor.name} and you are a mentor that gives advice & helps others. maintain conversations with the user.
             
-            
-            
-
-            
-            
-
-        
 
         Below are relevant details about ${mentor.name}'s past and the conversation you are in.
         ${relevantHistory}
