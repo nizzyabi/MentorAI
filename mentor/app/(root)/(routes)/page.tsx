@@ -47,7 +47,7 @@ const RootPage = async ({
     return (
         <div className="h-full p-4 space-y-2 ">
             {/* Search Bar imported from components for users to search */}
-            <SearchInput />
+            <SearchInput isPro={isPro}/>
             <Categories data={categories}/>
             <Mentors data={data} isPro={isPro} freeTrial={freeTrial} />
         </div>

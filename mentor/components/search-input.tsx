@@ -7,9 +7,21 @@ import { useState, useEffect, ChangeEventHandler } from "react";
 import { Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { useDebounce } from "@/hooks/use-debounce";
+import { useAuth } from "@clerk/nextjs";
 
+// interface 
+
+interface SearchInputProps {
+    isPro: boolean;
+}
 // Search & Input components for users to search for current mentors.
-export const SearchInput = () => {
+export const SearchInput = ({
+    isPro
+}: SearchInputProps) => {
+
+    // User Id
+
+    const userId = useAuth();
 
     // Routing & URL query parameters
     const router = useRouter();
@@ -67,14 +79,16 @@ export const SearchInput = () => {
       }, []);
     
     return (
-        
-        <div className="relative text-black">
-            <Input
-                onChange={onChange}
-                value={value}
-                placeholder={`Search for a mentor... Eg. ${placeholders[placeholderIndex]}`}
-        className="pl-4 bg-white text-black border-white border-2 text-sm focus:outline-none"
-            />
+        <div>
+            <div className={`${!isPro && userId ? "mt-12" : ""} sm:mt-0 relative text-black`}>
+                <Input
+                    onChange={onChange}
+                    value={value}
+                    placeholder={`Search for a mentor... Eg. ${placeholders[placeholderIndex]}`}
+                     className="pl-4 bg-white text-black border-white border-2 text-sm focus:outline-none"
+                    />
+            </div>
+            
         </div>
     )
 }
