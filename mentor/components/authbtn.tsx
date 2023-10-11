@@ -10,12 +10,12 @@ export const AuthBtn = ({ isSignedIn }: AuthBtnProps) => {
   const { signOut } = useClerk();
   return (
     <div>
-      <Link href="/sign-in">
+      <Link href='/sign-up'>
         {isSignedIn ? (
           <UserButton />
         ) : (
-          <Button size="sm" className="text-black bg-white hover:opacity-75 ">
-            Login
+          <Button size="sm" className="text-white hover:opacity-75 " variant="upgrade">
+            Sign Up
           </Button>
         )}
       </Link>

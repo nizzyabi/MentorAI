@@ -67,12 +67,13 @@ export const SearchInput = () => {
       }, []);
     
     return (
+        
         <div className="relative text-black">
             <Input
                 onChange={onChange}
                 value={value}
                 placeholder={`Search for a mentor... Eg. ${placeholders[placeholderIndex]}`}
-            className="pl-4 mt-0 bg-white text-black border-white border-2 text-sm focus:outline-none"
+        className="pl-4 bg-white text-black border-white border-2 text-sm focus:outline-none"
             />
         </div>
     )

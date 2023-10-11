@@ -60,7 +60,7 @@ export const Navbar = ({
                 </Link>
             </div>
             
-            <div className="flex items-center gap-x-3">
+            <div className="flex items-center gap-x-3 ">
                 <div className="flex items-center">
                     {!isPro && userId ? (
                         <FreeCounter 

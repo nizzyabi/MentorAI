@@ -36,7 +36,7 @@ export const Mentors = ({
     const handleMentorClick = (mentorId: string) => {
         // If user is not logged in, redirect to sign in page
         if (!user) {
-            window.location.href='/sign-in';
+            window.location.href='/sign-up';
             return;
         }
         // If the user is a pro or on a free trial, navigate to chat
@@ -84,7 +84,7 @@ export const Mentors = ({
                         
                         {/* Image & Card for the mentor*/}
                         <div className="flex items-center justify-center text-center text-black mentor">
-                            <div className="relative w-[170px] h-[170px]">
+                            <div className="relative w-[170px] h-[170px] rounded-xl border-gray-500 border-2">
                                 <Image
                                     src={item.src}
                                     fill
