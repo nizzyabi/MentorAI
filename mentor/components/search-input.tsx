@@ -80,7 +80,7 @@ export const SearchInput = ({
     
     return (
         <div>
-            <div className={`${!isPro && userId ? "mt-12" : ""} sm:mt-0 relative text-black`}>
+            <div className={`${!isPro && userId ? "sm: mt-12" : ""} sm:mt-0 relative text-black`}>
                 <Input
                     onChange={onChange}
                     value={value}
