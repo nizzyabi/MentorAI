@@ -55,7 +55,7 @@ export async function GET() {
                         currency: "USD",
                         product_data: {
                             name: "Mentor Pro",
-                            description: "Create Custom AI Mentors & Get Early Access to New Features",
+                            description: "",
                         },
                         // cost
                         unit_amount: 899,
