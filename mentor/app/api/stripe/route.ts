@@ -54,8 +54,8 @@ export async function GET() {
                     price_data: {
                         currency: "USD",
                         product_data: {
-                            name: "Mentor Pro",
-                            description: "",
+                            name: "MyMentorAI",
+                            description: "MyMentorAI Pro"
                         },
                         // cost
                         unit_amount: 899,
