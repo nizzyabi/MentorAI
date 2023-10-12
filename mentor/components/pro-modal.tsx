@@ -30,7 +30,7 @@ export const ProModal = () => {
         try {
             // take them to stripe based on wetehr or not they are subscribed or not.
             setLoading(true);
-            const response = await axios.get("/checkout");
+            const response = await axios.get("/api/stripe");
 
             window.location.href = response.data.url
         } catch (error) {
