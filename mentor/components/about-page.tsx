@@ -5,7 +5,9 @@ import Image from "next/image"
 import { Button } from "./ui/button"
 import Link from "next/link"
 import { Card, CardFooter, CardHeader } from "@/components/ui/card";
+import '../app/globals.css'
 import '../app/about.css';
+
 import { Check } from "lucide-react"
 export default function AboutUs() {
 
@@ -56,13 +58,13 @@ export default function AboutUs() {
     ]
 
     return (
-        <div className="bg-[#0f0e0e]">
+        <div className="bg-secondary pt-4">
             {/* Header */}
-            <div className="bg-[#0f0e0e]">
-                <div className="text-6xl md:text-6xl font-bold text-white flex text-center justify-center pr-20 pl-20 bg-[#0f0e0e] ">
+            <div className="bg-secondary">
+                <div className="text-6xl md:text-6xl font-bold text-white flex text-center justify-center pr-20 pl-20 bg-secondary ">
                     <h1>Your Personal Mentor at your fingertips 🦾</h1> 
                 </div>
-                <div className="text-xl md:text-xl font-light text-white flex text-center justify-center pt-4 pb-3 pr-20 pl-20">
+                <div className="text-xl md:text-xl font-light flex text-center justify-center pt-4 pb-3 pr-20 pl-20">
                     <p>Ever wanted to get advice from the best? From celeberties to athletes to Nobel Peice Prize winning scientists, MyMentorAI allows you to talk to who you want, whenever you want.</p>
                 </div>
                 {/* Images of Mentors */}
@@ -70,11 +72,11 @@ export default function AboutUs() {
             </div>
 
                 {/* Link to all mentors */}
-                <div className="bg-[#0f0e0e]">
-                <div className="relative w-66 h-50 flex items-center justify-center p-5 bg-[#0f0e0e]">
+                <div className="bg-secondary">
+                <div className="relative w-66 h-50 flex items-center justify-center p-5 bg-secondary">
                 {/* Map through images*/}  
                 {images.map((item, index) => (
-                    <div key={index} className="relative w-60 h-60 bg-[#0f0e0e] m-2">
+                    <div key={index} className="relative w-60 h-60 bg-secondary m-2">
                         <Image
                             src={item.src}
                             fill
@@ -82,7 +84,7 @@ export default function AboutUs() {
                             alt="Mentor"
                         />
 
-                        <div className="flex items-center justify-center mt-[250px] bg-[#0f0e0e]">
+                        <div className="flex items-center justify-center mt-[250px] bg-secondary">
                             {item.name}
                         </div>
                         
@@ -92,7 +94,7 @@ export default function AboutUs() {
                 ))}
             </div>
             {/* Button */}
-                    <div className="flex items-center justify-center pb-5 pt-[30px] bg-[#0f0e0e]">
+                    <div className="flex items-center justify-center pb-5 pt-[30px] bg-secondary">
                         <Link href='/'>
                             <Button size='lg' variant='upgrade'className="hover:opacity-75 text-lg font-semibold">
                                 Try for Free
@@ -103,11 +105,11 @@ export default function AboutUs() {
                     {/* Link to Reviews*/}
                     <h1 className="flex justify-center items-center"> <span className="mr-2 text-purple-500">★★★★★</span> 5 stars from 452 users</h1>
             </div>
-            <div className="flex items-center justify-center pt-8 pb-5 bg-[#0f0e0e]">
+            <div className="flex items-center justify-center pt-8 pb-5 bg-secondary">
                 {/* Moving Text */}
-                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold bg-[#0f0e0e]">
-                <div className="flex items-center justify-center bg-[#0f0e0e]">
-                        <h1 className="text-white pr-2">Talk to: </h1>
+                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold bg-secondary">
+                <div className="flex items-center justify-center bg-secondary">
+                        <h1 className=" pr-2">Talk to: </h1>
                         <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                         <TypewriterComponent options={{
                     strings: [
@@ -131,7 +133,7 @@ export default function AboutUs() {
             </div>
             {/* Why we started */}
             <div>
-                <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl space-y-5 font-extrabold bg-[#0f0e0e]">
+                <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl space-y-5 font-extrabold bg-secondary">
                     <h1 className="flex justify-center items-center">How to use My Mentor AI: </h1>
                 </div>
                 
@@ -144,7 +146,7 @@ export default function AboutUs() {
                 </div>
             </div>
             {/* Button */}
-                <div className="flex items-center justify-center mb-5 mt-5 bg-[#0f0e0e]">
+                <div className="flex items-center justify-center mb-5 mt-5 bg-secondary">
                     <Link href='/'>
                         <Button size='lg' variant="upgrade"className="text-lg hover:opacity-50 font-semibold">
                             Try For Free
@@ -163,10 +165,10 @@ export default function AboutUs() {
                     <h1 className="p-2"><span className="text-purple-500">✔</span> Latest & greatest AI models</h1>
                 </div>
                 {/* More Images */}
-                <div className="relative w-66 h-50 flex items-center justify-center p-5 bg-[#0f0e0e]">
+                <div className="relative w-66 h-50 flex items-center justify-center p-5 bg-secondary">
                 {/* Map through images*/}  
                 {images2.map((item, index) => (
-                    <div key={index} className="relative w-60 h-60 bg-[#0f0e0e] m-2">
+                    <div key={index} className="relative w-60 h-60 bg-secondary m-2">
                         <Image
                             src={item.src}
                             fill
@@ -174,7 +176,7 @@ export default function AboutUs() {
                             alt="Mentor"
                         />
 
-                        <div className="flex items-center justify-center mt-[250px] bg-[#0f0e0e]">
+                        <div className="flex items-center justify-center mt-[250px] bg-secondary">
                             {item.name}
                         </div>
                         
@@ -184,7 +186,7 @@ export default function AboutUs() {
                 ))}
             </div>
                 {/* Button */}
-                <div className="flex items-center justify-center mb-5 mt-5 bg-[#0f0e0e]">
+                <div className="flex items-center justify-center mb-5 mt-5 bg-secondary">
                     <Link href='/'>
                         <Button size='lg' variant="upgrade"className="text-lg hover:opacity-50 font-semibold">
                             Try For Free
@@ -193,13 +195,13 @@ export default function AboutUs() {
                 </div>
             </div>
             {/* Reviews ( Twitter )*/}
-                <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl  font-extrabold bg-[#0f0e0e]">
-                    <h1 className="text-white text-center pb-1">Who is this for?</h1>
+                <div className="text-2xl sm:text-5xl md:text-3xl lg:text-5xl  font-extrabold bg-secondary">
+                    <h1 className=" text-center pb-1">Who is this for?</h1>
                 </div>
-                <div className="relative w-66 h-50 flex items-center justify-center p-5 bg-[#0f0e0e]">
+                <div className="relative w-66 h-50 flex items-center justify-center p-5 bg-secondary">
                 {/* Map through images*/}  
                 {whoImg.map((item, index) => (
-                    <div key={index} className="relative w-60 h-60 m-2 bg-[#0f0e0e]">
+                    <div key={index} className="relative w-60 h-60 m-2 bg-secondary">
                         <Image
                             src={item.src}
                             fill

@@ -50,7 +50,7 @@ export const Mentors = ({
 
     if (data.length === 0) {
         return (
-            <div className="pt-10 flex flex-col items-center justify-center space-y-3 bg-[#0f0e0e]">
+            <div className="pt-10 flex flex-col items-center justify-center space-y-3 bg-secondary">
                 <div className="relative w-60 h-60">
                     <Image 
                         fill
@@ -60,7 +60,7 @@ export const Mentors = ({
                     />
                      
                 </div>
-                <p className="text-sm text-white">No Mentors Found</p>
+                <p className="text-sm text-primary">No Mentors Found</p>
             </div>
         )
     }
@@ -70,21 +70,21 @@ export const Mentors = ({
     return (
         // style so that the cards look different with each display size.
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-2 bg-[#0f0e0e] pb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-2 bg-secondary pb-8">
             
             {/* Map through the data to display the mentor using item.id */}
             {data.map((item) => (
                 <div
                     key={item.id}
-                    className="bg-[#0f0e0e] cursor-pointer transition hover:opacity-70 text-white pt-2"
+                    className="bg-secondary cursor-pointer transition hover:opacity-70 text-primary pt-2"
                     onClick={() => handleMentorClick(item.id)}
                 >
                     {/* Link for the mentor to go to the chat. */}
                    
                         
                         {/* Image & Card for the mentor*/}
-                        <div className="flex items-center justify-center text-center text-black mentor">
-                            <div className="relative w-[170px] h-[170px] rounded-xl border-gray-500 border-2">
+                        <div className="flex items-center justify-center text-center  mentor">
+                            <div className="relative w-[170px] h-[170px] rounded-xl specialBtn">
                                 <Image
                                     src={item.src}
                                     fill

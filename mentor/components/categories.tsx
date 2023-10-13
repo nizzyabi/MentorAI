@@ -54,11 +54,11 @@ export const Categories = ({
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
 
-                    <Button onClick={handleButton}className="bg-transparent text-white hover:bg-transparent cursor-pointer" size="icon">
+                    <Button onClick={handleButton}className="bg-transparent text-primary hover:bg-transparent cursor-pointer" size="icon">
                         <SlidersHorizontal className='border-none hover:opacity-60'/>
                     </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white">
+                <DropdownMenuContent className="bg-primary">
                 <button
                 onClick={() => onClick(undefined)} // When 'newest' button is clicked, we want to reset the search params to undefined & show all mentors.
                 className={cn(`
@@ -75,7 +75,7 @@ export const Categories = ({
                   bg-none
                   transition
                   pb-2 
-                  text-black
+                  text-secondary
                   cursor-pointer
                   hover:opacity-75 
                   scroll
@@ -105,7 +105,7 @@ export const Categories = ({
                     bg-none
                     transition
                     pb-2 
-                    text-black
+                    text-secondary
                     cursor-pointer
                     hover:opacity-75 
                     scroll

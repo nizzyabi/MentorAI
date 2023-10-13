@@ -38,7 +38,7 @@ export const Navbar = ({
     const { userId } = useAuth();
     
     return (
-        <div className="w-full z-50 flex justify-between items-center px-2 cursor-pointer pt-3 pb-1 fixed bg-[#0f0e0e]">
+        <div className="w-full z-50 flex justify-between items-center px-2 cursor-pointer pt-3 pb-1 fixed bg-secondary">
             <div className="flex items-center">
                 {/* Getting mobile sidebar function */}
                 <MobileSidebar isPro={isPro} />
@@ -46,16 +46,16 @@ export const Navbar = ({
                 <Link href='/'>
                     {isPro ? (
                         <h1 className={cn(
-                            "hidden md:block text-xl md:text-3xl font-bold text-white",
+                            "hidden md:block text-xl md:text-3xl font-bold text-primary",
                             {/* Dynamic Font (Poppins) */},
                             font.className 
-                            )}>MyMentor.AI<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"> Pro</span></h1>
+                            )}>MyMentor.AI<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400"> Pro</span></h1>
                     ) : (
                         <h1 className={cn(
-                            "hidden md:block text-xl md:text-3xl font-bold text-white",
+                            "hidden md:block text-xl md:text-3xl font-bold text-primary",
                             {/* Dynamic Font (Poppins) */},
                             font.className 
-                            )}>MyMentor<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">AI</span></h1>
+                            )}>MyMentor<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">AI</span></h1>
                     )}
                 </Link>
             </div>
@@ -84,7 +84,6 @@ export const Navbar = ({
 
                 {/*<UserButton afterSignOutUrl="/"/>*/}
                 <AuthBtn isSignedIn={userId !== null}/>
-                
                 
             </div>
         </div>

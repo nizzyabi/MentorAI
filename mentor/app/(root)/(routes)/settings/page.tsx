@@ -21,6 +21,11 @@ const SettingsPage = async () => {
             </div>
             <Separator />
             <div className="pt-5 pb-5">
+                <p className="text-md text-muted-foreground mb-2 font-bold">Mode</p>
+                <ModeToggle />
+            </div>
+            <Separator />
+            <div className="pt-5 pb-5">
                 <p className="text-md text-muted-foreground mb-2 font-bold">Membership</p>
                 <p className="text-sm text-muted-foreground mb-2">
                     {isPro ? "You are currently on a Pro plan" : "You are currently on a Free plan"}

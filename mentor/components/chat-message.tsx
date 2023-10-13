@@ -44,13 +44,13 @@ export const ChatMessage = ({
     }
     return (
         <div className={cn(
-            "group flex items-start gap-x-3 py-4 w-full",
+            "group flex items-start gap-x-3 py-4 w-full bg-secondary",
             // If the role is the user, justify the end
             role === "user" && "justify-end"
         )}>
         {/* If the role is not user, render a bot avatar component */}
             {role !== "user" && src && <BotAvatar src={src}/>}
-            <div className="rounded-md px-4 py-2 max-w-sm text-sm bg-white">
+            <div className="rounded-md px-4 py-2 max-w-sm text-sm bg-primary">
                 {/* If it is loading, show the loading message, otherwise show the content which we put in chat-messages content*/}
                 {isLoading 
                 ? <BeatLoader 
@@ -65,11 +65,11 @@ export const ChatMessage = ({
             {role !== "user" && !isLoading && (
                 <Button
                     onClick={onCopy}
-                    className="opacity-0 text-white group-hover:opacity-100 transition"
+                    className="opacity-0 text-primary group-hover:opacity-100 transition"
                     size="icon"
                     variant="ghost"
                 >
-                    <Copy className="w-4 h-4"/>
+                    <Copy className="w-4 h-4 bg-secondary"/>
                 </Button>
             )}
         </div>

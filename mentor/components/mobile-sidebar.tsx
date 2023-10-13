@@ -14,11 +14,11 @@ export const MobileSidebar = ({ isPro } : MobileSidebarProps) => {
         // Wrap in sheet component for mobile sidebar & to tell code that this is a sheet
         <Sheet>
             {/* When user clicks on Menu, there is an action (via sheet trigger)*/}
-            <SheetTrigger className="md:hidden pr-4 text-white">
+            <SheetTrigger className="md:hidden pr-4 text-primary">
                 <Menu />
             </SheetTrigger>
             {/* Content within sidebar (sidebar component) once sheet trigger (menu button) is clicked */}
-            <SheetContent side="left" className="p-0 bg-[#0f0e0e] text-white pt-5 w-28 border-none hover:border-none pl-0">
+            <SheetContent side="left" className="p-0 bg-secondary text-primary pt-5 w-28 border-none hover:border-none pl-0">
                 <Sidebar isPro={isPro}/>
             </SheetContent>
         </Sheet>

@@ -32,12 +32,12 @@ export const FreeCounter = ({
         <div className="flex items-center justify-center pt-2">
             <Card className="pt-1">
             <CardContent className="">
-                <div className=" text-center text-md text-white">
+                <div className=" text-center text-md text-primary">
                     <p className="font-bold">
                         {apiLimitCount} / {MAX_FREE_COUNTS} <span className="">Free Chats</span> 
                     </p>
                     <Progress 
-                        className=" bg-white border-pink-500 border-2"
+                        className=" bg-white border-primary border-2"
                         value={(apiLimitCount) / MAX_FREE_COUNTS * 100}
                     />
                 </div>

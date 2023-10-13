@@ -50,7 +50,7 @@ export const ProModal = () => {
             <DialogContent>
                 <DialogHeader className="space-y-4">
                     <DialogTitle className="text-center text-3xl">
-                        Upgrade to Mentor<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Pro</span>
+                        Upgrade to Mentor<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-400">Pro</span>
                     </DialogTitle>
 
                     {/* Description #1 */}
