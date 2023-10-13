@@ -84,7 +84,7 @@ export const Mentors = ({
                         
                         {/* Image & Card for the mentor*/}
                         <div className="flex items-center justify-center text-center  mentor">
-                            <div className="relative w-[170px] h-[170px] rounded-xl specialBtn">
+                            <div className="relative w-[170px] h-[170px] rounded-xl ">
                                 <Image
                                     src={item.src}
                                     fill
