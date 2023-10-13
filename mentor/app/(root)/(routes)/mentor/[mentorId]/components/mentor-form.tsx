@@ -7,7 +7,7 @@ import { Category, Mentor } from "@prisma/client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import '../app/globals.css'
+
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"; 
 import { Separator } from "@/components/ui/separator";
 import ImageUpload from "@/components/image-upload";
