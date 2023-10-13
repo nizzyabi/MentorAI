@@ -55,7 +55,7 @@ export const ChatMessage = ({
                 {isLoading 
                 ? <BeatLoader 
                     size={5}
-                    color={"black"}
+                    color={'gray'}
                     /> 
                 : content}
             </div>
@@ -65,7 +65,7 @@ export const ChatMessage = ({
             {role !== "user" && !isLoading && (
                 <Button
                     onClick={onCopy}
-                    className="opacity-0 text-primary group-hover:opacity-100 transition"
+                    className="opacity-0 text-secondary group-hover:opacity-100 transition"
                     size="icon"
                     variant="ghost"
                 >

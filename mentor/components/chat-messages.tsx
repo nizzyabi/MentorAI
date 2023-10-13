@@ -40,7 +40,7 @@ export const ChatMessages = ({
 
     return (
         // Put the input for bot with it's image & a description message
-        <div className="flex-1 overflow-y-auto pr-4 text-secondary bg-secondary">
+        <div className="flex-1 overflow-y-auto pr-4 text-secondary">
             <ChatMessage
                 isLoading={fakeLoading}
                 src={mentor.src}

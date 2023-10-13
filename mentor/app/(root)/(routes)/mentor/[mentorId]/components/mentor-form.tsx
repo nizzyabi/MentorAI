@@ -142,7 +142,7 @@ export const MentorForm = ({
                             <h3 className="text-lg font-medium">Create a Mentor</h3>
                             <p className="text-sm text-muted-foreground">Create your own custom mentor. It could be anyone in the world!</p>
                         </div>
-                        <Separator className="bg-purple-500" />
+                        <Separator className="bg-primary/10" />
                     </div>
                     {/* Image Upload Section*/}
                     <FormField 
