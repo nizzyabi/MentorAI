@@ -61,7 +61,7 @@ export default function AboutUs() {
         <div className="bg-secondary pt-4">
             {/* Header */}
             <div className="bg-secondary">
-                <div className="text-6xl md:text-6xl font-bold text-white flex text-center justify-center pr-20 pl-20 bg-secondary ">
+                <div className="text-6xl md:text-6xl font-bold flex text-center justify-center pr-20 pl-20 bg-secondary ">
                     <h1>Your Personal Mentor at your fingertips 🦾</h1> 
                 </div>
                 <div className="text-xl md:text-xl font-light flex text-center justify-center pt-4 pb-3 pr-20 pl-20">
