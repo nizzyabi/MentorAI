@@ -6,7 +6,7 @@ import { Button } from "./ui/button"
 import Link from "next/link"
 import { Card, CardFooter, CardHeader } from "@/components/ui/card";
 import '../app/globals.css'
-import '../app/about.css';
+
 
 import { Check } from "lucide-react"
 export default function AboutUs() {
