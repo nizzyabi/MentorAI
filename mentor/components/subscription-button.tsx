@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button";
-import { Zap } from "lucide-react";
+import { Sparkle } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
@@ -37,7 +37,7 @@ export const SubscriptionButton = ({
     return(
         <Button onClick={onClick} disabled={loading} className="hover:opacity-75 font-bold" variant={isPro? "default" : "upgrade"}>
             {isPro ? "Manage Subscription" : "Upgrade to MentorPro"}
-            {!isPro && <Zap className="h-4 w-4 ml-2 fill-white"/>}
+            {!isPro && <Sparkle className="h-4 w-4 ml-2 fill-white"/>}
         </Button>
     )
 }

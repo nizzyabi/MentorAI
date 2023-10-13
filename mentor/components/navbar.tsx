@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 // Global Imports
 import { AuthBtn } from "@/components/authbtn";
-import { Menu, Sparkles, Zap } from "lucide-react";
+import { Menu, Sparkle, Sparkles, Zap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
@@ -76,7 +76,7 @@ export const Navbar = ({
                     
                             <Button onClick={proModal.onOpen} size="sm" variant='upgrade' className="hover:opacity-75">
                                 MentorPro
-                                <Zap className="h-4 w-4 fill-white text-white ml-2" />
+                                <Sparkle className="h-4 w-4 fill-white text-white ml-2" />
                             </Button>
                 )}
                 {/* Button from shadcn, the code is located in the components folder */}
