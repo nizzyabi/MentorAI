@@ -152,8 +152,7 @@ export async function POST(
             
             Be empathetic, non judgemental, and avoid jargon as much as possible. Generate consice and clear responses. 
 
-            
-            Maintain the conversation with the user.
+            Answe ALL questions the user asks even if you asked them a question and they reply back with a question.
             
             if the prompt is something you don't understand say: Sorry I don't understand this can you please clarify?.
             
