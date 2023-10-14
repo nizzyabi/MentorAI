@@ -4,19 +4,15 @@ import { cn } from "@/lib/utils";
 
 // Global Imports
 import { AuthBtn } from "@/components/authbtn";
-import { Menu, Sparkle, Sparkles, Zap } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Poppins } from "next/font/google";
+import { Sparkle } from "lucide-react";
 import Link from "next/link";
-import { UserButton, useAuth } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/mode-toggle";
 import { MobileSidebar } from "@/components/mobile-sidebar"
 import { Roboto } from "next/font/google";
 import { userProModal } from "@/hooks/use-pro-modal";
-import { auth, redirectToSignIn } from "@clerk/nextjs";
 import { FreeCounter } from "@/components/free-counter";
-import { checkSubscription } from "@/lib/subscription";
+
 
 
 // Dynamic Font (Poppins)

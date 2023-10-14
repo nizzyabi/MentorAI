@@ -125,11 +125,13 @@ export class MemoryManager {
     ) {
         const key = this.generateRedisMentorKey(mentorKey);
 
+        // if chat history exists, return it
         if (await this.history.exists(key)) {
             console.log("Already has chat history");
             return;
         }
 
+        // split coneent by delimiter & count
         const content = seedContent.split(delimiter);
         let counter = 0;
 

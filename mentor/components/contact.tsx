@@ -38,7 +38,7 @@ const Contact: FC = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <h3 className="text-lg font-medium">Contact us</h3>
-                    <p className="text-sm text-muted-foreground mb-2">Please inform us of any problem or issue you are facing. We will respond within 1-2 hours.</p>
+                    <p className="text-sm text-muted-foreground mb-2">Please inform us of any problem or issue you are facing.</p>
                 </div>
                 <Separator className="bg-primary/10" />
                 <div className="pt-2">
@@ -59,8 +59,8 @@ const Contact: FC = () => {
                     </div>
                 </div>
                 <div className="pt-2">
-                    <p className="pl-1 pb-1 text-sm text-muted-foreground">Issue / Problem</p>
-                    <Input className="pb-32 mb-3 pt-3" {...register('message', { required: true })} />
+                    <p className="pl-1 pb-2 text-sm text-muted-foreground">Issue / Problem</p>
+                    <Input className="pb-32 mb-3 pt-4" {...register('message', { required: true })} />
                 </div>
                 <Button type="submit">Submit</Button>
             </form>
