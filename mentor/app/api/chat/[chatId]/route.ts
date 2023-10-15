@@ -1,4 +1,4 @@
-
+import dotenv from "dotenv";
 import { StreamingTextResponse, LangChainStream } from "ai";
 import { auth, currentUser } from "@clerk/nextjs";
 import { Replicate } from "langchain/llms/replicate";
@@ -12,6 +12,8 @@ import { increaseApiLimit, checkApiLimit } from "@/lib/api-limit";
 import { userProModal } from "@/hooks/use-pro-modal";
 import { checkSubscription } from "@/lib/subscription";
 import { ProModal } from "@/components/pro-modal";
+
+dotenv.config({ path: `.env`})
 
 export async function POST(
   request: Request,
@@ -81,7 +83,7 @@ export async function POST(
     const mentorKey = {
       mentorName: name!,
       userId: user.id,
-      modelName: "llama-2-13b-chat",
+      modelName: "llama2-13b",
     };
 
     // CREATE MEMORY MANAGER
@@ -129,7 +131,7 @@ export async function POST(
     // Call Replicate for inference
     const model = new Replicate({
       model:
-      "meta/llama-2-13b-chat:f4e2de70d66816a838a89eeeb621910adffb0dd0baba3976c96980970978018d",
+      "a16z-infra/llama-2-13b-chat:df7690f1994d94e96ad9d568eac121aecf50684a0b0963b25a41cc40061269e5",
       input: {
         max_length: 2048,
       },
